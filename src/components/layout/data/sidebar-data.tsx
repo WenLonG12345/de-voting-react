@@ -19,27 +19,27 @@ export const sidebarData: SidebarData = {
       items: [
         {
           title: 'Dashboard',
-          url: '/',
+          url: '/admin',
           icon: IconLayoutDashboard,
         },
         {
           title: 'Campaigns',
-          url: '/campaigns',
+          url: '/admin/campaigns',
           icon: IconChecklist,
         },
         {
           title: 'Users',
-          url: '/users',
+          url: '/admin/users',
           icon: IconUsers,
         },
         {
           title: 'Reports',
-          url: '/reports',
+          url: '/admin/reports',
           icon: IconMessages,
         },
         {
           title: 'Branding',
-          url: '/branding',
+          url: '/admin/branding',
           icon: IconPackages,
         },
       ],

@@ -9,41 +9,43 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
-import { Route as AuthenticatedIndexRouteImport } from './routes/_authenticated/index'
+import { Route as AdminRouteRouteImport } from './routes/admin/route'
+import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as errors503RouteImport } from './routes/(errors)/503'
 import { Route as errors500RouteImport } from './routes/(errors)/500'
 import { Route as errors404RouteImport } from './routes/(errors)/404'
 import { Route as errors403RouteImport } from './routes/(errors)/403'
 import { Route as errors401RouteImport } from './routes/(errors)/401'
-import { Route as authSignUpRouteImport } from './routes/(auth)/sign-up'
-import { Route as authSignIn2RouteImport } from './routes/(auth)/sign-in-2'
-import { Route as authSignInRouteImport } from './routes/(auth)/sign-in'
-import { Route as authOtpRouteImport } from './routes/(auth)/otp'
-import { Route as authForgotPasswordRouteImport } from './routes/(auth)/forgot-password'
-import { Route as AuthenticatedSettingsRouteRouteImport } from './routes/_authenticated/settings/route'
-import { Route as AuthenticatedUsersIndexRouteImport } from './routes/_authenticated/users/index'
-import { Route as AuthenticatedTasksIndexRouteImport } from './routes/_authenticated/tasks/index'
-import { Route as AuthenticatedSettingsIndexRouteImport } from './routes/_authenticated/settings/index'
-import { Route as AuthenticatedReportsIndexRouteImport } from './routes/_authenticated/reports/index'
-import { Route as AuthenticatedHelpCenterIndexRouteImport } from './routes/_authenticated/help-center/index'
-import { Route as AuthenticatedChatsIndexRouteImport } from './routes/_authenticated/chats/index'
-import { Route as AuthenticatedCampaignsIndexRouteImport } from './routes/_authenticated/campaigns/index'
-import { Route as AuthenticatedBrandingIndexRouteImport } from './routes/_authenticated/branding/index'
-import { Route as AuthenticatedAppsIndexRouteImport } from './routes/_authenticated/apps/index'
-import { Route as AuthenticatedSettingsNotificationsRouteImport } from './routes/_authenticated/settings/notifications'
-import { Route as AuthenticatedSettingsDisplayRouteImport } from './routes/_authenticated/settings/display'
-import { Route as AuthenticatedSettingsAppearanceRouteImport } from './routes/_authenticated/settings/appearance'
-import { Route as AuthenticatedSettingsAccountRouteImport } from './routes/_authenticated/settings/account'
+import { Route as AdminSettingsRouteRouteImport } from './routes/admin/settings/route'
+import { Route as AdminUsersIndexRouteImport } from './routes/admin/users/index'
+import { Route as AdminTasksIndexRouteImport } from './routes/admin/tasks/index'
+import { Route as AdminSettingsIndexRouteImport } from './routes/admin/settings/index'
+import { Route as AdminReportsIndexRouteImport } from './routes/admin/reports/index'
+import { Route as AdminHelpCenterIndexRouteImport } from './routes/admin/help-center/index'
+import { Route as AdminChatsIndexRouteImport } from './routes/admin/chats/index'
+import { Route as AdminCampaignsIndexRouteImport } from './routes/admin/campaigns/index'
+import { Route as AdminBrandingIndexRouteImport } from './routes/admin/branding/index'
+import { Route as AdminAppsIndexRouteImport } from './routes/admin/apps/index'
+import { Route as AdminSettingsNotificationsRouteImport } from './routes/admin/settings/notifications'
+import { Route as AdminSettingsDisplayRouteImport } from './routes/admin/settings/display'
+import { Route as AdminSettingsAppearanceRouteImport } from './routes/admin/settings/appearance'
+import { Route as AdminSettingsAccountRouteImport } from './routes/admin/settings/account'
+import { Route as AdminCampaignsSlugRouteImport } from './routes/admin/campaigns/$slug'
+import { Route as AdminauthSignUpRouteImport } from './routes/admin/(auth)/sign-up'
+import { Route as AdminauthSignIn2RouteImport } from './routes/admin/(auth)/sign-in-2'
+import { Route as AdminauthSignInRouteImport } from './routes/admin/(auth)/sign-in'
+import { Route as AdminauthOtpRouteImport } from './routes/admin/(auth)/otp'
+import { Route as AdminauthForgotPasswordRouteImport } from './routes/admin/(auth)/forgot-password'
 
-const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
-  id: '/_authenticated',
+const AdminRouteRoute = AdminRouteRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedIndexRoute = AuthenticatedIndexRouteImport.update({
+const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => AuthenticatedRouteRoute,
+  getParentRoute: () => AdminRouteRoute,
 } as any)
 const errors503Route = errors503RouteImport.update({
   id: '/(errors)/503',
@@ -70,285 +72,284 @@ const errors401Route = errors401RouteImport.update({
   path: '/401',
   getParentRoute: () => rootRouteImport,
 } as any)
-const authSignUpRoute = authSignUpRouteImport.update({
-  id: '/(auth)/sign-up',
-  path: '/sign-up',
-  getParentRoute: () => rootRouteImport,
+const AdminSettingsRouteRoute = AdminSettingsRouteRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AdminRouteRoute,
 } as any)
-const authSignIn2Route = authSignIn2RouteImport.update({
-  id: '/(auth)/sign-in-2',
-  path: '/sign-in-2',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const authSignInRoute = authSignInRouteImport.update({
-  id: '/(auth)/sign-in',
-  path: '/sign-in',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const authOtpRoute = authOtpRouteImport.update({
-  id: '/(auth)/otp',
-  path: '/otp',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const authForgotPasswordRoute = authForgotPasswordRouteImport.update({
-  id: '/(auth)/forgot-password',
-  path: '/forgot-password',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AuthenticatedSettingsRouteRoute =
-  AuthenticatedSettingsRouteRouteImport.update({
-    id: '/settings',
-    path: '/settings',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedUsersIndexRoute = AuthenticatedUsersIndexRouteImport.update({
+const AdminUsersIndexRoute = AdminUsersIndexRouteImport.update({
   id: '/users/',
   path: '/users/',
-  getParentRoute: () => AuthenticatedRouteRoute,
+  getParentRoute: () => AdminRouteRoute,
 } as any)
-const AuthenticatedTasksIndexRoute = AuthenticatedTasksIndexRouteImport.update({
+const AdminTasksIndexRoute = AdminTasksIndexRouteImport.update({
   id: '/tasks/',
   path: '/tasks/',
-  getParentRoute: () => AuthenticatedRouteRoute,
+  getParentRoute: () => AdminRouteRoute,
 } as any)
-const AuthenticatedSettingsIndexRoute =
-  AuthenticatedSettingsIndexRouteImport.update({
-    id: '/',
-    path: '/',
-    getParentRoute: () => AuthenticatedSettingsRouteRoute,
-  } as any)
-const AuthenticatedReportsIndexRoute =
-  AuthenticatedReportsIndexRouteImport.update({
-    id: '/reports/',
-    path: '/reports/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedHelpCenterIndexRoute =
-  AuthenticatedHelpCenterIndexRouteImport.update({
-    id: '/help-center/',
-    path: '/help-center/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedChatsIndexRoute = AuthenticatedChatsIndexRouteImport.update({
+const AdminSettingsIndexRoute = AdminSettingsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminSettingsRouteRoute,
+} as any)
+const AdminReportsIndexRoute = AdminReportsIndexRouteImport.update({
+  id: '/reports/',
+  path: '/reports/',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminHelpCenterIndexRoute = AdminHelpCenterIndexRouteImport.update({
+  id: '/help-center/',
+  path: '/help-center/',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminChatsIndexRoute = AdminChatsIndexRouteImport.update({
   id: '/chats/',
   path: '/chats/',
-  getParentRoute: () => AuthenticatedRouteRoute,
+  getParentRoute: () => AdminRouteRoute,
 } as any)
-const AuthenticatedCampaignsIndexRoute =
-  AuthenticatedCampaignsIndexRouteImport.update({
-    id: '/campaigns/',
-    path: '/campaigns/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedBrandingIndexRoute =
-  AuthenticatedBrandingIndexRouteImport.update({
-    id: '/branding/',
-    path: '/branding/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedAppsIndexRoute = AuthenticatedAppsIndexRouteImport.update({
+const AdminCampaignsIndexRoute = AdminCampaignsIndexRouteImport.update({
+  id: '/campaigns/',
+  path: '/campaigns/',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminBrandingIndexRoute = AdminBrandingIndexRouteImport.update({
+  id: '/branding/',
+  path: '/branding/',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminAppsIndexRoute = AdminAppsIndexRouteImport.update({
   id: '/apps/',
   path: '/apps/',
-  getParentRoute: () => AuthenticatedRouteRoute,
+  getParentRoute: () => AdminRouteRoute,
 } as any)
-const AuthenticatedSettingsNotificationsRoute =
-  AuthenticatedSettingsNotificationsRouteImport.update({
+const AdminSettingsNotificationsRoute =
+  AdminSettingsNotificationsRouteImport.update({
     id: '/notifications',
     path: '/notifications',
-    getParentRoute: () => AuthenticatedSettingsRouteRoute,
+    getParentRoute: () => AdminSettingsRouteRoute,
   } as any)
-const AuthenticatedSettingsDisplayRoute =
-  AuthenticatedSettingsDisplayRouteImport.update({
-    id: '/display',
-    path: '/display',
-    getParentRoute: () => AuthenticatedSettingsRouteRoute,
-  } as any)
-const AuthenticatedSettingsAppearanceRoute =
-  AuthenticatedSettingsAppearanceRouteImport.update({
-    id: '/appearance',
-    path: '/appearance',
-    getParentRoute: () => AuthenticatedSettingsRouteRoute,
-  } as any)
-const AuthenticatedSettingsAccountRoute =
-  AuthenticatedSettingsAccountRouteImport.update({
-    id: '/account',
-    path: '/account',
-    getParentRoute: () => AuthenticatedSettingsRouteRoute,
-  } as any)
+const AdminSettingsDisplayRoute = AdminSettingsDisplayRouteImport.update({
+  id: '/display',
+  path: '/display',
+  getParentRoute: () => AdminSettingsRouteRoute,
+} as any)
+const AdminSettingsAppearanceRoute = AdminSettingsAppearanceRouteImport.update({
+  id: '/appearance',
+  path: '/appearance',
+  getParentRoute: () => AdminSettingsRouteRoute,
+} as any)
+const AdminSettingsAccountRoute = AdminSettingsAccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => AdminSettingsRouteRoute,
+} as any)
+const AdminCampaignsSlugRoute = AdminCampaignsSlugRouteImport.update({
+  id: '/campaigns/$slug',
+  path: '/campaigns/$slug',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminauthSignUpRoute = AdminauthSignUpRouteImport.update({
+  id: '/(auth)/sign-up',
+  path: '/sign-up',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminauthSignIn2Route = AdminauthSignIn2RouteImport.update({
+  id: '/(auth)/sign-in-2',
+  path: '/sign-in-2',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminauthSignInRoute = AdminauthSignInRouteImport.update({
+  id: '/(auth)/sign-in',
+  path: '/sign-in',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminauthOtpRoute = AdminauthOtpRouteImport.update({
+  id: '/(auth)/otp',
+  path: '/otp',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminauthForgotPasswordRoute = AdminauthForgotPasswordRouteImport.update({
+  id: '/(auth)/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
-  '/settings': typeof AuthenticatedSettingsRouteRouteWithChildren
-  '/forgot-password': typeof authForgotPasswordRoute
-  '/otp': typeof authOtpRoute
-  '/sign-in': typeof authSignInRoute
-  '/sign-in-2': typeof authSignIn2Route
-  '/sign-up': typeof authSignUpRoute
+  '/admin': typeof AdminRouteRouteWithChildren
+  '/admin/settings': typeof AdminSettingsRouteRouteWithChildren
   '/401': typeof errors401Route
   '/403': typeof errors403Route
   '/404': typeof errors404Route
   '/500': typeof errors500Route
   '/503': typeof errors503Route
-  '/': typeof AuthenticatedIndexRoute
-  '/settings/account': typeof AuthenticatedSettingsAccountRoute
-  '/settings/appearance': typeof AuthenticatedSettingsAppearanceRoute
-  '/settings/display': typeof AuthenticatedSettingsDisplayRoute
-  '/settings/notifications': typeof AuthenticatedSettingsNotificationsRoute
-  '/apps': typeof AuthenticatedAppsIndexRoute
-  '/branding': typeof AuthenticatedBrandingIndexRoute
-  '/campaigns': typeof AuthenticatedCampaignsIndexRoute
-  '/chats': typeof AuthenticatedChatsIndexRoute
-  '/help-center': typeof AuthenticatedHelpCenterIndexRoute
-  '/reports': typeof AuthenticatedReportsIndexRoute
-  '/settings/': typeof AuthenticatedSettingsIndexRoute
-  '/tasks': typeof AuthenticatedTasksIndexRoute
-  '/users': typeof AuthenticatedUsersIndexRoute
+  '/admin/': typeof AdminIndexRoute
+  '/admin/forgot-password': typeof AdminauthForgotPasswordRoute
+  '/admin/otp': typeof AdminauthOtpRoute
+  '/admin/sign-in': typeof AdminauthSignInRoute
+  '/admin/sign-in-2': typeof AdminauthSignIn2Route
+  '/admin/sign-up': typeof AdminauthSignUpRoute
+  '/admin/campaigns/$slug': typeof AdminCampaignsSlugRoute
+  '/admin/settings/account': typeof AdminSettingsAccountRoute
+  '/admin/settings/appearance': typeof AdminSettingsAppearanceRoute
+  '/admin/settings/display': typeof AdminSettingsDisplayRoute
+  '/admin/settings/notifications': typeof AdminSettingsNotificationsRoute
+  '/admin/apps': typeof AdminAppsIndexRoute
+  '/admin/branding': typeof AdminBrandingIndexRoute
+  '/admin/campaigns': typeof AdminCampaignsIndexRoute
+  '/admin/chats': typeof AdminChatsIndexRoute
+  '/admin/help-center': typeof AdminHelpCenterIndexRoute
+  '/admin/reports': typeof AdminReportsIndexRoute
+  '/admin/settings/': typeof AdminSettingsIndexRoute
+  '/admin/tasks': typeof AdminTasksIndexRoute
+  '/admin/users': typeof AdminUsersIndexRoute
 }
 export interface FileRoutesByTo {
-  '/forgot-password': typeof authForgotPasswordRoute
-  '/otp': typeof authOtpRoute
-  '/sign-in': typeof authSignInRoute
-  '/sign-in-2': typeof authSignIn2Route
-  '/sign-up': typeof authSignUpRoute
   '/401': typeof errors401Route
   '/403': typeof errors403Route
   '/404': typeof errors404Route
   '/500': typeof errors500Route
   '/503': typeof errors503Route
-  '/': typeof AuthenticatedIndexRoute
-  '/settings/account': typeof AuthenticatedSettingsAccountRoute
-  '/settings/appearance': typeof AuthenticatedSettingsAppearanceRoute
-  '/settings/display': typeof AuthenticatedSettingsDisplayRoute
-  '/settings/notifications': typeof AuthenticatedSettingsNotificationsRoute
-  '/apps': typeof AuthenticatedAppsIndexRoute
-  '/branding': typeof AuthenticatedBrandingIndexRoute
-  '/campaigns': typeof AuthenticatedCampaignsIndexRoute
-  '/chats': typeof AuthenticatedChatsIndexRoute
-  '/help-center': typeof AuthenticatedHelpCenterIndexRoute
-  '/reports': typeof AuthenticatedReportsIndexRoute
-  '/settings': typeof AuthenticatedSettingsIndexRoute
-  '/tasks': typeof AuthenticatedTasksIndexRoute
-  '/users': typeof AuthenticatedUsersIndexRoute
+  '/admin': typeof AdminIndexRoute
+  '/admin/forgot-password': typeof AdminauthForgotPasswordRoute
+  '/admin/otp': typeof AdminauthOtpRoute
+  '/admin/sign-in': typeof AdminauthSignInRoute
+  '/admin/sign-in-2': typeof AdminauthSignIn2Route
+  '/admin/sign-up': typeof AdminauthSignUpRoute
+  '/admin/campaigns/$slug': typeof AdminCampaignsSlugRoute
+  '/admin/settings/account': typeof AdminSettingsAccountRoute
+  '/admin/settings/appearance': typeof AdminSettingsAppearanceRoute
+  '/admin/settings/display': typeof AdminSettingsDisplayRoute
+  '/admin/settings/notifications': typeof AdminSettingsNotificationsRoute
+  '/admin/apps': typeof AdminAppsIndexRoute
+  '/admin/branding': typeof AdminBrandingIndexRoute
+  '/admin/campaigns': typeof AdminCampaignsIndexRoute
+  '/admin/chats': typeof AdminChatsIndexRoute
+  '/admin/help-center': typeof AdminHelpCenterIndexRoute
+  '/admin/reports': typeof AdminReportsIndexRoute
+  '/admin/settings': typeof AdminSettingsIndexRoute
+  '/admin/tasks': typeof AdminTasksIndexRoute
+  '/admin/users': typeof AdminUsersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
-  '/_authenticated/settings': typeof AuthenticatedSettingsRouteRouteWithChildren
-  '/(auth)/forgot-password': typeof authForgotPasswordRoute
-  '/(auth)/otp': typeof authOtpRoute
-  '/(auth)/sign-in': typeof authSignInRoute
-  '/(auth)/sign-in-2': typeof authSignIn2Route
-  '/(auth)/sign-up': typeof authSignUpRoute
+  '/admin': typeof AdminRouteRouteWithChildren
+  '/admin/settings': typeof AdminSettingsRouteRouteWithChildren
   '/(errors)/401': typeof errors401Route
   '/(errors)/403': typeof errors403Route
   '/(errors)/404': typeof errors404Route
   '/(errors)/500': typeof errors500Route
   '/(errors)/503': typeof errors503Route
-  '/_authenticated/': typeof AuthenticatedIndexRoute
-  '/_authenticated/settings/account': typeof AuthenticatedSettingsAccountRoute
-  '/_authenticated/settings/appearance': typeof AuthenticatedSettingsAppearanceRoute
-  '/_authenticated/settings/display': typeof AuthenticatedSettingsDisplayRoute
-  '/_authenticated/settings/notifications': typeof AuthenticatedSettingsNotificationsRoute
-  '/_authenticated/apps/': typeof AuthenticatedAppsIndexRoute
-  '/_authenticated/branding/': typeof AuthenticatedBrandingIndexRoute
-  '/_authenticated/campaigns/': typeof AuthenticatedCampaignsIndexRoute
-  '/_authenticated/chats/': typeof AuthenticatedChatsIndexRoute
-  '/_authenticated/help-center/': typeof AuthenticatedHelpCenterIndexRoute
-  '/_authenticated/reports/': typeof AuthenticatedReportsIndexRoute
-  '/_authenticated/settings/': typeof AuthenticatedSettingsIndexRoute
-  '/_authenticated/tasks/': typeof AuthenticatedTasksIndexRoute
-  '/_authenticated/users/': typeof AuthenticatedUsersIndexRoute
+  '/admin/': typeof AdminIndexRoute
+  '/admin/(auth)/forgot-password': typeof AdminauthForgotPasswordRoute
+  '/admin/(auth)/otp': typeof AdminauthOtpRoute
+  '/admin/(auth)/sign-in': typeof AdminauthSignInRoute
+  '/admin/(auth)/sign-in-2': typeof AdminauthSignIn2Route
+  '/admin/(auth)/sign-up': typeof AdminauthSignUpRoute
+  '/admin/campaigns/$slug': typeof AdminCampaignsSlugRoute
+  '/admin/settings/account': typeof AdminSettingsAccountRoute
+  '/admin/settings/appearance': typeof AdminSettingsAppearanceRoute
+  '/admin/settings/display': typeof AdminSettingsDisplayRoute
+  '/admin/settings/notifications': typeof AdminSettingsNotificationsRoute
+  '/admin/apps/': typeof AdminAppsIndexRoute
+  '/admin/branding/': typeof AdminBrandingIndexRoute
+  '/admin/campaigns/': typeof AdminCampaignsIndexRoute
+  '/admin/chats/': typeof AdminChatsIndexRoute
+  '/admin/help-center/': typeof AdminHelpCenterIndexRoute
+  '/admin/reports/': typeof AdminReportsIndexRoute
+  '/admin/settings/': typeof AdminSettingsIndexRoute
+  '/admin/tasks/': typeof AdminTasksIndexRoute
+  '/admin/users/': typeof AdminUsersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/settings'
-    | '/forgot-password'
-    | '/otp'
-    | '/sign-in'
-    | '/sign-in-2'
-    | '/sign-up'
+    | '/admin'
+    | '/admin/settings'
     | '/401'
     | '/403'
     | '/404'
     | '/500'
     | '/503'
-    | '/'
-    | '/settings/account'
-    | '/settings/appearance'
-    | '/settings/display'
-    | '/settings/notifications'
-    | '/apps'
-    | '/branding'
-    | '/campaigns'
-    | '/chats'
-    | '/help-center'
-    | '/reports'
-    | '/settings/'
-    | '/tasks'
-    | '/users'
+    | '/admin/'
+    | '/admin/forgot-password'
+    | '/admin/otp'
+    | '/admin/sign-in'
+    | '/admin/sign-in-2'
+    | '/admin/sign-up'
+    | '/admin/campaigns/$slug'
+    | '/admin/settings/account'
+    | '/admin/settings/appearance'
+    | '/admin/settings/display'
+    | '/admin/settings/notifications'
+    | '/admin/apps'
+    | '/admin/branding'
+    | '/admin/campaigns'
+    | '/admin/chats'
+    | '/admin/help-center'
+    | '/admin/reports'
+    | '/admin/settings/'
+    | '/admin/tasks'
+    | '/admin/users'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/forgot-password'
-    | '/otp'
-    | '/sign-in'
-    | '/sign-in-2'
-    | '/sign-up'
     | '/401'
     | '/403'
     | '/404'
     | '/500'
     | '/503'
-    | '/'
-    | '/settings/account'
-    | '/settings/appearance'
-    | '/settings/display'
-    | '/settings/notifications'
-    | '/apps'
-    | '/branding'
-    | '/campaigns'
-    | '/chats'
-    | '/help-center'
-    | '/reports'
-    | '/settings'
-    | '/tasks'
-    | '/users'
+    | '/admin'
+    | '/admin/forgot-password'
+    | '/admin/otp'
+    | '/admin/sign-in'
+    | '/admin/sign-in-2'
+    | '/admin/sign-up'
+    | '/admin/campaigns/$slug'
+    | '/admin/settings/account'
+    | '/admin/settings/appearance'
+    | '/admin/settings/display'
+    | '/admin/settings/notifications'
+    | '/admin/apps'
+    | '/admin/branding'
+    | '/admin/campaigns'
+    | '/admin/chats'
+    | '/admin/help-center'
+    | '/admin/reports'
+    | '/admin/settings'
+    | '/admin/tasks'
+    | '/admin/users'
   id:
     | '__root__'
-    | '/_authenticated'
-    | '/_authenticated/settings'
-    | '/(auth)/forgot-password'
-    | '/(auth)/otp'
-    | '/(auth)/sign-in'
-    | '/(auth)/sign-in-2'
-    | '/(auth)/sign-up'
+    | '/admin'
+    | '/admin/settings'
     | '/(errors)/401'
     | '/(errors)/403'
     | '/(errors)/404'
     | '/(errors)/500'
     | '/(errors)/503'
-    | '/_authenticated/'
-    | '/_authenticated/settings/account'
-    | '/_authenticated/settings/appearance'
-    | '/_authenticated/settings/display'
-    | '/_authenticated/settings/notifications'
-    | '/_authenticated/apps/'
-    | '/_authenticated/branding/'
-    | '/_authenticated/campaigns/'
-    | '/_authenticated/chats/'
-    | '/_authenticated/help-center/'
-    | '/_authenticated/reports/'
-    | '/_authenticated/settings/'
-    | '/_authenticated/tasks/'
-    | '/_authenticated/users/'
+    | '/admin/'
+    | '/admin/(auth)/forgot-password'
+    | '/admin/(auth)/otp'
+    | '/admin/(auth)/sign-in'
+    | '/admin/(auth)/sign-in-2'
+    | '/admin/(auth)/sign-up'
+    | '/admin/campaigns/$slug'
+    | '/admin/settings/account'
+    | '/admin/settings/appearance'
+    | '/admin/settings/display'
+    | '/admin/settings/notifications'
+    | '/admin/apps/'
+    | '/admin/branding/'
+    | '/admin/campaigns/'
+    | '/admin/chats/'
+    | '/admin/help-center/'
+    | '/admin/reports/'
+    | '/admin/settings/'
+    | '/admin/tasks/'
+    | '/admin/users/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
-  authForgotPasswordRoute: typeof authForgotPasswordRoute
-  authOtpRoute: typeof authOtpRoute
-  authSignInRoute: typeof authSignInRoute
-  authSignIn2Route: typeof authSignIn2Route
-  authSignUpRoute: typeof authSignUpRoute
+  AdminRouteRoute: typeof AdminRouteRouteWithChildren
   errors401Route: typeof errors401Route
   errors403Route: typeof errors403Route
   errors404Route: typeof errors404Route
@@ -358,19 +359,19 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/_authenticated': {
-      id: '/_authenticated'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_authenticated/': {
-      id: '/_authenticated/'
+    '/admin/': {
+      id: '/admin/'
       path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof AuthenticatedIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
     }
     '/(errors)/503': {
       id: '/(errors)/503'
@@ -407,201 +408,212 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof errors401RouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/(auth)/sign-up': {
-      id: '/(auth)/sign-up'
-      path: '/sign-up'
-      fullPath: '/sign-up'
-      preLoaderRoute: typeof authSignUpRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/(auth)/sign-in-2': {
-      id: '/(auth)/sign-in-2'
-      path: '/sign-in-2'
-      fullPath: '/sign-in-2'
-      preLoaderRoute: typeof authSignIn2RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/(auth)/sign-in': {
-      id: '/(auth)/sign-in'
-      path: '/sign-in'
-      fullPath: '/sign-in'
-      preLoaderRoute: typeof authSignInRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/(auth)/otp': {
-      id: '/(auth)/otp'
-      path: '/otp'
-      fullPath: '/otp'
-      preLoaderRoute: typeof authOtpRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/(auth)/forgot-password': {
-      id: '/(auth)/forgot-password'
-      path: '/forgot-password'
-      fullPath: '/forgot-password'
-      preLoaderRoute: typeof authForgotPasswordRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/settings': {
-      id: '/_authenticated/settings'
+    '/admin/settings': {
+      id: '/admin/settings'
       path: '/settings'
-      fullPath: '/settings'
-      preLoaderRoute: typeof AuthenticatedSettingsRouteRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteRouteImport
+      parentRoute: typeof AdminRouteRoute
     }
-    '/_authenticated/users/': {
-      id: '/_authenticated/users/'
+    '/admin/users/': {
+      id: '/admin/users/'
       path: '/users'
-      fullPath: '/users'
-      preLoaderRoute: typeof AuthenticatedUsersIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminUsersIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
     }
-    '/_authenticated/tasks/': {
-      id: '/_authenticated/tasks/'
+    '/admin/tasks/': {
+      id: '/admin/tasks/'
       path: '/tasks'
-      fullPath: '/tasks'
-      preLoaderRoute: typeof AuthenticatedTasksIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+      fullPath: '/admin/tasks'
+      preLoaderRoute: typeof AdminTasksIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
     }
-    '/_authenticated/settings/': {
-      id: '/_authenticated/settings/'
+    '/admin/settings/': {
+      id: '/admin/settings/'
       path: '/'
-      fullPath: '/settings/'
-      preLoaderRoute: typeof AuthenticatedSettingsIndexRouteImport
-      parentRoute: typeof AuthenticatedSettingsRouteRoute
+      fullPath: '/admin/settings/'
+      preLoaderRoute: typeof AdminSettingsIndexRouteImport
+      parentRoute: typeof AdminSettingsRouteRoute
     }
-    '/_authenticated/reports/': {
-      id: '/_authenticated/reports/'
+    '/admin/reports/': {
+      id: '/admin/reports/'
       path: '/reports'
-      fullPath: '/reports'
-      preLoaderRoute: typeof AuthenticatedReportsIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+      fullPath: '/admin/reports'
+      preLoaderRoute: typeof AdminReportsIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
     }
-    '/_authenticated/help-center/': {
-      id: '/_authenticated/help-center/'
+    '/admin/help-center/': {
+      id: '/admin/help-center/'
       path: '/help-center'
-      fullPath: '/help-center'
-      preLoaderRoute: typeof AuthenticatedHelpCenterIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+      fullPath: '/admin/help-center'
+      preLoaderRoute: typeof AdminHelpCenterIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
     }
-    '/_authenticated/chats/': {
-      id: '/_authenticated/chats/'
+    '/admin/chats/': {
+      id: '/admin/chats/'
       path: '/chats'
-      fullPath: '/chats'
-      preLoaderRoute: typeof AuthenticatedChatsIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+      fullPath: '/admin/chats'
+      preLoaderRoute: typeof AdminChatsIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
     }
-    '/_authenticated/campaigns/': {
-      id: '/_authenticated/campaigns/'
+    '/admin/campaigns/': {
+      id: '/admin/campaigns/'
       path: '/campaigns'
-      fullPath: '/campaigns'
-      preLoaderRoute: typeof AuthenticatedCampaignsIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+      fullPath: '/admin/campaigns'
+      preLoaderRoute: typeof AdminCampaignsIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
     }
-    '/_authenticated/branding/': {
-      id: '/_authenticated/branding/'
+    '/admin/branding/': {
+      id: '/admin/branding/'
       path: '/branding'
-      fullPath: '/branding'
-      preLoaderRoute: typeof AuthenticatedBrandingIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+      fullPath: '/admin/branding'
+      preLoaderRoute: typeof AdminBrandingIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
     }
-    '/_authenticated/apps/': {
-      id: '/_authenticated/apps/'
+    '/admin/apps/': {
+      id: '/admin/apps/'
       path: '/apps'
-      fullPath: '/apps'
-      preLoaderRoute: typeof AuthenticatedAppsIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+      fullPath: '/admin/apps'
+      preLoaderRoute: typeof AdminAppsIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
     }
-    '/_authenticated/settings/notifications': {
-      id: '/_authenticated/settings/notifications'
+    '/admin/settings/notifications': {
+      id: '/admin/settings/notifications'
       path: '/notifications'
-      fullPath: '/settings/notifications'
-      preLoaderRoute: typeof AuthenticatedSettingsNotificationsRouteImport
-      parentRoute: typeof AuthenticatedSettingsRouteRoute
+      fullPath: '/admin/settings/notifications'
+      preLoaderRoute: typeof AdminSettingsNotificationsRouteImport
+      parentRoute: typeof AdminSettingsRouteRoute
     }
-    '/_authenticated/settings/display': {
-      id: '/_authenticated/settings/display'
+    '/admin/settings/display': {
+      id: '/admin/settings/display'
       path: '/display'
-      fullPath: '/settings/display'
-      preLoaderRoute: typeof AuthenticatedSettingsDisplayRouteImport
-      parentRoute: typeof AuthenticatedSettingsRouteRoute
+      fullPath: '/admin/settings/display'
+      preLoaderRoute: typeof AdminSettingsDisplayRouteImport
+      parentRoute: typeof AdminSettingsRouteRoute
     }
-    '/_authenticated/settings/appearance': {
-      id: '/_authenticated/settings/appearance'
+    '/admin/settings/appearance': {
+      id: '/admin/settings/appearance'
       path: '/appearance'
-      fullPath: '/settings/appearance'
-      preLoaderRoute: typeof AuthenticatedSettingsAppearanceRouteImport
-      parentRoute: typeof AuthenticatedSettingsRouteRoute
+      fullPath: '/admin/settings/appearance'
+      preLoaderRoute: typeof AdminSettingsAppearanceRouteImport
+      parentRoute: typeof AdminSettingsRouteRoute
     }
-    '/_authenticated/settings/account': {
-      id: '/_authenticated/settings/account'
+    '/admin/settings/account': {
+      id: '/admin/settings/account'
       path: '/account'
-      fullPath: '/settings/account'
-      preLoaderRoute: typeof AuthenticatedSettingsAccountRouteImport
-      parentRoute: typeof AuthenticatedSettingsRouteRoute
+      fullPath: '/admin/settings/account'
+      preLoaderRoute: typeof AdminSettingsAccountRouteImport
+      parentRoute: typeof AdminSettingsRouteRoute
+    }
+    '/admin/campaigns/$slug': {
+      id: '/admin/campaigns/$slug'
+      path: '/campaigns/$slug'
+      fullPath: '/admin/campaigns/$slug'
+      preLoaderRoute: typeof AdminCampaignsSlugRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/(auth)/sign-up': {
+      id: '/admin/(auth)/sign-up'
+      path: '/sign-up'
+      fullPath: '/admin/sign-up'
+      preLoaderRoute: typeof AdminauthSignUpRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/(auth)/sign-in-2': {
+      id: '/admin/(auth)/sign-in-2'
+      path: '/sign-in-2'
+      fullPath: '/admin/sign-in-2'
+      preLoaderRoute: typeof AdminauthSignIn2RouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/(auth)/sign-in': {
+      id: '/admin/(auth)/sign-in'
+      path: '/sign-in'
+      fullPath: '/admin/sign-in'
+      preLoaderRoute: typeof AdminauthSignInRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/(auth)/otp': {
+      id: '/admin/(auth)/otp'
+      path: '/otp'
+      fullPath: '/admin/otp'
+      preLoaderRoute: typeof AdminauthOtpRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/(auth)/forgot-password': {
+      id: '/admin/(auth)/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/admin/forgot-password'
+      preLoaderRoute: typeof AdminauthForgotPasswordRouteImport
+      parentRoute: typeof AdminRouteRoute
     }
   }
 }
 
-interface AuthenticatedSettingsRouteRouteChildren {
-  AuthenticatedSettingsAccountRoute: typeof AuthenticatedSettingsAccountRoute
-  AuthenticatedSettingsAppearanceRoute: typeof AuthenticatedSettingsAppearanceRoute
-  AuthenticatedSettingsDisplayRoute: typeof AuthenticatedSettingsDisplayRoute
-  AuthenticatedSettingsNotificationsRoute: typeof AuthenticatedSettingsNotificationsRoute
-  AuthenticatedSettingsIndexRoute: typeof AuthenticatedSettingsIndexRoute
+interface AdminSettingsRouteRouteChildren {
+  AdminSettingsAccountRoute: typeof AdminSettingsAccountRoute
+  AdminSettingsAppearanceRoute: typeof AdminSettingsAppearanceRoute
+  AdminSettingsDisplayRoute: typeof AdminSettingsDisplayRoute
+  AdminSettingsNotificationsRoute: typeof AdminSettingsNotificationsRoute
+  AdminSettingsIndexRoute: typeof AdminSettingsIndexRoute
 }
 
-const AuthenticatedSettingsRouteRouteChildren: AuthenticatedSettingsRouteRouteChildren =
-  {
-    AuthenticatedSettingsAccountRoute: AuthenticatedSettingsAccountRoute,
-    AuthenticatedSettingsAppearanceRoute: AuthenticatedSettingsAppearanceRoute,
-    AuthenticatedSettingsDisplayRoute: AuthenticatedSettingsDisplayRoute,
-    AuthenticatedSettingsNotificationsRoute:
-      AuthenticatedSettingsNotificationsRoute,
-    AuthenticatedSettingsIndexRoute: AuthenticatedSettingsIndexRoute,
-  }
-
-const AuthenticatedSettingsRouteRouteWithChildren =
-  AuthenticatedSettingsRouteRoute._addFileChildren(
-    AuthenticatedSettingsRouteRouteChildren,
-  )
-
-interface AuthenticatedRouteRouteChildren {
-  AuthenticatedSettingsRouteRoute: typeof AuthenticatedSettingsRouteRouteWithChildren
-  AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute
-  AuthenticatedAppsIndexRoute: typeof AuthenticatedAppsIndexRoute
-  AuthenticatedBrandingIndexRoute: typeof AuthenticatedBrandingIndexRoute
-  AuthenticatedCampaignsIndexRoute: typeof AuthenticatedCampaignsIndexRoute
-  AuthenticatedChatsIndexRoute: typeof AuthenticatedChatsIndexRoute
-  AuthenticatedHelpCenterIndexRoute: typeof AuthenticatedHelpCenterIndexRoute
-  AuthenticatedReportsIndexRoute: typeof AuthenticatedReportsIndexRoute
-  AuthenticatedTasksIndexRoute: typeof AuthenticatedTasksIndexRoute
-  AuthenticatedUsersIndexRoute: typeof AuthenticatedUsersIndexRoute
+const AdminSettingsRouteRouteChildren: AdminSettingsRouteRouteChildren = {
+  AdminSettingsAccountRoute: AdminSettingsAccountRoute,
+  AdminSettingsAppearanceRoute: AdminSettingsAppearanceRoute,
+  AdminSettingsDisplayRoute: AdminSettingsDisplayRoute,
+  AdminSettingsNotificationsRoute: AdminSettingsNotificationsRoute,
+  AdminSettingsIndexRoute: AdminSettingsIndexRoute,
 }
 
-const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
-  AuthenticatedSettingsRouteRoute: AuthenticatedSettingsRouteRouteWithChildren,
-  AuthenticatedIndexRoute: AuthenticatedIndexRoute,
-  AuthenticatedAppsIndexRoute: AuthenticatedAppsIndexRoute,
-  AuthenticatedBrandingIndexRoute: AuthenticatedBrandingIndexRoute,
-  AuthenticatedCampaignsIndexRoute: AuthenticatedCampaignsIndexRoute,
-  AuthenticatedChatsIndexRoute: AuthenticatedChatsIndexRoute,
-  AuthenticatedHelpCenterIndexRoute: AuthenticatedHelpCenterIndexRoute,
-  AuthenticatedReportsIndexRoute: AuthenticatedReportsIndexRoute,
-  AuthenticatedTasksIndexRoute: AuthenticatedTasksIndexRoute,
-  AuthenticatedUsersIndexRoute: AuthenticatedUsersIndexRoute,
+const AdminSettingsRouteRouteWithChildren =
+  AdminSettingsRouteRoute._addFileChildren(AdminSettingsRouteRouteChildren)
+
+interface AdminRouteRouteChildren {
+  AdminSettingsRouteRoute: typeof AdminSettingsRouteRouteWithChildren
+  AdminIndexRoute: typeof AdminIndexRoute
+  AdminauthForgotPasswordRoute: typeof AdminauthForgotPasswordRoute
+  AdminauthOtpRoute: typeof AdminauthOtpRoute
+  AdminauthSignInRoute: typeof AdminauthSignInRoute
+  AdminauthSignIn2Route: typeof AdminauthSignIn2Route
+  AdminauthSignUpRoute: typeof AdminauthSignUpRoute
+  AdminCampaignsSlugRoute: typeof AdminCampaignsSlugRoute
+  AdminAppsIndexRoute: typeof AdminAppsIndexRoute
+  AdminBrandingIndexRoute: typeof AdminBrandingIndexRoute
+  AdminCampaignsIndexRoute: typeof AdminCampaignsIndexRoute
+  AdminChatsIndexRoute: typeof AdminChatsIndexRoute
+  AdminHelpCenterIndexRoute: typeof AdminHelpCenterIndexRoute
+  AdminReportsIndexRoute: typeof AdminReportsIndexRoute
+  AdminTasksIndexRoute: typeof AdminTasksIndexRoute
+  AdminUsersIndexRoute: typeof AdminUsersIndexRoute
 }
 
-const AuthenticatedRouteRouteWithChildren =
-  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+const AdminRouteRouteChildren: AdminRouteRouteChildren = {
+  AdminSettingsRouteRoute: AdminSettingsRouteRouteWithChildren,
+  AdminIndexRoute: AdminIndexRoute,
+  AdminauthForgotPasswordRoute: AdminauthForgotPasswordRoute,
+  AdminauthOtpRoute: AdminauthOtpRoute,
+  AdminauthSignInRoute: AdminauthSignInRoute,
+  AdminauthSignIn2Route: AdminauthSignIn2Route,
+  AdminauthSignUpRoute: AdminauthSignUpRoute,
+  AdminCampaignsSlugRoute: AdminCampaignsSlugRoute,
+  AdminAppsIndexRoute: AdminAppsIndexRoute,
+  AdminBrandingIndexRoute: AdminBrandingIndexRoute,
+  AdminCampaignsIndexRoute: AdminCampaignsIndexRoute,
+  AdminChatsIndexRoute: AdminChatsIndexRoute,
+  AdminHelpCenterIndexRoute: AdminHelpCenterIndexRoute,
+  AdminReportsIndexRoute: AdminReportsIndexRoute,
+  AdminTasksIndexRoute: AdminTasksIndexRoute,
+  AdminUsersIndexRoute: AdminUsersIndexRoute,
+}
+
+const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(
+  AdminRouteRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
-  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
-  authForgotPasswordRoute: authForgotPasswordRoute,
-  authOtpRoute: authOtpRoute,
-  authSignInRoute: authSignInRoute,
-  authSignIn2Route: authSignIn2Route,
-  authSignUpRoute: authSignUpRoute,
+  AdminRouteRoute: AdminRouteRouteWithChildren,
   errors401Route: errors401Route,
   errors403Route: errors403Route,
   errors404Route: errors404Route,

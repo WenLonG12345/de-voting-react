@@ -1,5 +1,6 @@
 import { QueryClient } from '@tanstack/react-query'
 import { createRootRouteWithContext, Outlet } from '@tanstack/react-router'
+import editorStyles from '@measured/puck/puck.css?url'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import { Toaster } from '@/components/ui/sonner'
@@ -13,6 +14,7 @@ export const Route = createRootRouteWithContext<{
   component: () => {
     return (
       <>
+        <link rel='stylesheet' href={editorStyles} id='puck-css' />
         <NavigationProgress />
         <Outlet />
         <Toaster duration={50000} />
