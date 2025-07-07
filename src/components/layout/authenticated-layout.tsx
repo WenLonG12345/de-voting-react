@@ -5,8 +5,6 @@ import { SearchProvider } from '@/context/search-context'
 import { SidebarProvider } from '@/components/ui/sidebar'
 import { AppSidebar } from '@/components/layout/app-sidebar'
 import SkipToMain from '@/components/skip-to-main'
-import { ProfileDropdown } from '../profile-dropdown'
-import { ThemeSwitch } from '../theme-switch'
 import { Header } from './header'
 
 export function AuthenticatedLayout() {
@@ -19,7 +17,7 @@ export function AuthenticatedLayout() {
         <div
           id='content'
           className={cn(
-            'ml-auto w-full max-w-full',
+            'ml-auto w-full max-w-full my-2',
             'peer-data-[state=collapsed]:w-[calc(100%-var(--sidebar-width-icon)-1rem)]',
             'peer-data-[state=expanded]:w-[calc(100%-var(--sidebar-width))]',
             'sm:transition-[width] sm:duration-200 sm:ease-linear',
@@ -28,12 +26,7 @@ export function AuthenticatedLayout() {
             'has-[main.fixed-main]:group-data-[scroll-locked=1]/body:h-svh'
           )}
         >
-          <Header>
-            <div className='ml-auto flex items-center space-x-4'>
-              <ThemeSwitch />
-              <ProfileDropdown />
-            </div>
-          </Header>
+          <Header className='block md:hidden' />
           <Outlet />
         </div>
       </SidebarProvider>

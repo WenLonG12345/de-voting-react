@@ -9,7 +9,7 @@ import CampaignLayoutTab from '@/features/campaigns/tabs/CampaignLayoutTab'
 import CampaignRulesTab from '@/features/campaigns/tabs/CampaignRulesTab'
 import { Button } from '@/components/ui/button'
 
-export const Route = createFileRoute('/admin/campaigns/$slug')({
+export const Route = createFileRoute('/admin/(dashboard)/campaigns/$slug')({
   component: RouteComponent,
 })
 

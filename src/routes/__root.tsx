@@ -2,7 +2,7 @@ import { QueryClient } from '@tanstack/react-query'
 import { createRootRouteWithContext, Outlet } from '@tanstack/react-router'
 import editorStyles from '@measured/puck/puck.css?url'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
+// import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import { Toaster } from '@/components/ui/sonner'
 import { NavigationProgress } from '@/components/navigation-progress'
 import GeneralError from '@/features/errors/general-error'
@@ -20,8 +20,8 @@ export const Route = createRootRouteWithContext<{
         <Toaster duration={50000} />
         {import.meta.env.MODE === 'development' && (
           <>
-            <ReactQueryDevtools buttonPosition='bottom-left' />
-            <TanStackRouterDevtools position='bottom-right' />
+            <ReactQueryDevtools buttonPosition='bottom-right' />
+            {/* <TanStackRouterDevtools position='bottom-left' /> */}
           </>
         )}
       </>

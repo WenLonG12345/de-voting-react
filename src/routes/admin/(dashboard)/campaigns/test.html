@@ -1,0 +1,701 @@
+<div class="ng-cloak" id="voteLayoutnew">
+  <nav id="nav-main" ng-if="!hideHeader" class="navbar navbar-expand navbar-dark sticky-top"
+    style="background-color: black;">
+    <div class="container" style="max-width: 100%">
+      <div class="navbar-nav" style="padding: 0px 0px !important"><a target="_blank" ng-href="[[vote.partner.web]]"
+          rel="noreferrer"><img ng-src="[[vote.partner.logoUrl]]" alt="Logo"
+            style="height: 60px; border-radius: 15px; padding: 8px" /></a>
+        <div class="header-text ng-scope">KFC | Raise The Star MY</div>
+      </div>
+      <div style="display: inline-flex;"><a class="home-btn sm-font-size" ng-click="showAllCategory()"
+          onclick="scrollToCategoryTop()" href="https://gempak.com/campaign/raisethestarmy">Home</a><!--  <div class="dropdown"><button
+        class="btn btn-undian dropdown-toggle sm-font-size"
+        type="button"
+        id="dropdownMenuButton"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        Undian
+      </button><div
+        class="dropdown-menu dropdown-menu-right"
+        aria-labelledby="dropdownMenuButton"
+      ><span
+      ng-repeat="category in vote.categories"
+        class="dropdown-item"
+        ng-click="categorySelected($index)"
+        onclick="scrollToElement(); scrollToElementMobile()"
+        >[[category.title]]</span></div></div> --></div>
+  </nav><!-- Ads Blocks -->
+  <div class="leaderboard-ad">
+    <div id='div-gpt-ad-1550620619039-0'></div>
+  </div>
+  <div id='div-gpt-ad-1541481115552-0'></div>
+  <div class='interstitial-popup' style="display: none"><button class="interstitial-button" style="display: none"
+      onclick="closeInterstatialAd()">[['txt_cancel' | translate]]</button>
+    <div id='div-gpt-ad-1714467900962-0'></div>
+  </div>
+  <div id="slide-desktop" class="container d-none d-sm-block" style="padding-top: 76px">
+    <div class="row">
+      <div class="container">
+        <div class="col-12 px-0 banner-container">
+          <div class="carousel slide" data-ride="carousel" id="carouselVoteHeroBanners">
+            <ol class="carousel-indicators" ng-if="vote.banners.length>1">
+              <li data-slide-to="[[$index]]" data-target="#carouselVoteHeroBanners"
+                ng-class="($index==0) ? 'active' : ''" ng-repeat="banner in vote.banners"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item" ng-class="($index==0) ? 'active' : ''" ng-if="banner.imageUrl"
+                ng-repeat="banner in vote.banners"><img ng-if="!banner.link || banner.link.length<=2"
+                  alt="[[banner.title]]" class="w-100" ng-src="[[banner.imageUrl]]" /><a
+                  ng-if="banner.link && banner.link.length>2" href="[[(banner.link) ? banner.link : banner.imageUrl]]"
+                  target="_blank" rel="noreferrer"><img alt="[[banner.title]]" class="w-100"
+                    ng-src="[[banner.imageUrl]]" /></a></div>
+            </div><a class="carousel-control-prev" data-slide="prev" href="#carouselVoteHeroBanners"
+              ng-if="(vote.banners && vote.banners.length>1)" role="button"><span aria-hidden="true"
+                class="carousel-control-prev-icon"></span><span class="sr-only">Previous</span></a><a
+              class="carousel-control-next" data-slide="next" href="#carouselVoteHeroBanners"
+              ng-if="(vote.banners && vote.banners.length>1)" role="button"><span aria-hidden="true"
+                class="carousel-control-next-icon"></span><span class="sr-only">Next</span></a>
+          </div>
+          <div class="header-title-container">
+            <h2 class="title">[[vote.title | translate]]</h2>
+            <h4 class="h4 font-weight-light subtitle" ng-bind-html="trustHtml(vote.subTitle)"></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="slide-mobile" class="d-sm-none"
+    style="padding-top: [[(hideHeader) ? '0px' : '60px']]; padding-bottom: 16px;">
+    <div class="w-100">
+      <div class="carousel slide w-100" data-ride="carousel" id="carouselVoteHeroBannersMobile">
+        <ol class="carousel-indicators" ng-if="vote.banners.length>1">
+          <li data-slide-to="[[$index]]" data-target="#carouselVoteHeroBannersMobile"
+            ng-class="($index==0) ? 'active' : ''" ng-repeat="banner in vote.banners"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item" ng-class="($index==0) ? 'active' : ''" ng-repeat="banner in vote.banners"><img
+              ng-if="!banner.link || banner.link.length<=2" alt="[[banner.title]]" class="w-100"
+              ng-src="[[banner.imageUrlMobile]]" /><a ng-if="banner.link && banner.link.length>2"
+              href="[[(banner.link) ? banner.link : banner.imageUrlMobile]]" target="_blank" rel="noreferrer"><img
+                alt="[[banner.title]]" class="w-100" ng-src="[[banner.imageUrlMobile]]" /></a></div>
+        </div><a class="carousel-control-prev" data-slide="prev" href="#carouselVoteHeroBannersMobile"
+          ng-if="(vote.banners && vote.banners.length>1)" role="button"><span aria-hidden="true"
+            class="carousel-control-prev-icon"></span><span class="sr-only">Previous</span></a><a
+          class="carousel-control-next" data-slide="next" href="#carouselVoteHeroBannersMobile"
+          ng-if="(vote.banners && vote.banners.length>1)" role="button"><span aria-hidden="true"
+            class="carousel-control-next-icon"></span><span class="sr-only">Next</span></a>
+      </div>
+    </div>
+    <div class="bg-white">
+      <div class="container">
+        <div class="row">
+          <div class="">
+            <div class="header-title-mobile-container">
+              <h1 class="mb-3 title">[[vote.title | translate]]</h1>
+              <h4 class="h4 font-weight-light subtitle" ng-bind-html="trustHtml(vote.subTitle)"></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  <div
+  class="text-center"
+  id="ads-leaderboard-desktop-container"
+  style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  "
+><div id="div-leaderboard-1"></div></div><backup-banner-leaderboard style="width: 100%"></backup-banner-leaderboard> -->
+  <div class="container mt-4" ng-if="!showOptions" id="category-anchor">
+    <h3 class="mb-4" style="color:white;">Mingguan</h3>
+    <div class="row mb-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-6 col-lg-3 mb-4" ng-repeat="category in vote.categories">
+            <div class="card" ng-click="categorySelected($index)"><img alt="[[category.title]]" class="w-100"
+                ng-src="[[category.imageUrl]]" />
+              <div class="card-body text-center">
+                <h5 class="card-title txt-vote-contestant-title mb-0">
+                  [[category.title]]
+                </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="padding: 0px 8px 0px 8px !important">
+    <div class="row" style="margin: 0px">
+      <div class="col-12 mb-2" style="margin: 0px; padding: 0px">
+        <div class="showOptions" ng-if="showOptions" id="section-category-title">
+          <div class="container">
+            <h3 class="mb-4" style="color: #fff;">[[vote.categories[selectedCategory].title]]</h3>
+            <div class="row gutter-16" style="margin: 0px">
+              <div class="col-6 grid-item five-cards-per-row" ng-class="(hasCategory) ? 'col-lg-custom' : 'col-lg-custom col-md-4'"
+                ng-if="showOptions" ng-repeat="option in vote.categories[selectedCategory].options">
+                <div class="card"><a class="w-100" ng-if="option.clickType=='video'" target="_blank" rel="noreferrer"
+                    href="[[option.videoUrl]]">
+                    <div class="position-relative"><i class="icon icon-play float-center hidden-xs hidden-sm"></i><img
+                        alt="[[option.title]]" class="w-100 vote-contestant-image" ng-src="[[option.imageUrl]]" /></div>
+                  </a><a class="w-100" ng-if="option.clickType=='openUrl'" target="_blank" rel="noreferrer"
+                    href="[[option.openUrl]]">
+                    <div class="position-relative"><img alt="[[option.title]]" class="w-100 vote-contestant-image"
+                        ng-src="[[option.imageUrl]]" /></div>
+                  </a>
+                  <div ng-if="option.clickType=='person' || option.clickType=='content'"><img alt="[[option.title]]"
+                      class="w-100 vote-contestant-image" ng-src="[[option.imageUrl]]" ng-click="moreInfo(option)" />
+                  </div>
+                  <div ng-if="option.clickType=='none'"><img alt="[[option.title]]" class="w-100 vote-contestant-image"
+                      ng-src="[[option.imageUrl]]" /></div>
+                  <div class="card-body text-center">
+                    <div>
+                      <h5 class="card-title txt-vote-contestant-title">
+                        [[option.title]]
+                      </h5>
+                      <p class="card-text txt-vote-contestant-sub-title">
+                        [[option.subTitle]]
+                      </p>
+                      <p class="card-text txt-vote-contestant-percentage"
+                        ng-if="vote.categories[selectedCategory].result">
+                        [[vote.categories[selectedCategory].result.options[option.id].percentage]]%
+                        [['txt_btn_vote' | translate]]
+                      </p>
+                    </div>
+                    <div class="btn btn-primary btn-vote btn-block text-uppercase" ng-click="submitVote(option)"
+                      ng-class="(!vote.categories[selectedCategory].active || (vote.categories[selectedCategory].available != undefined && !vote.categories[selectedCategory].available) ) ? 'disabled' : '' ">
+                      [['txt_btn_vote' | translate]]
+                    </div>
+                    <div ng-if="option.clickType=='person' || option.clickType=='content' || option.clickType=='video'"
+                      class="btn btn-primary btn-video btn-block text-uppercase" ng-click="moreInfo(option)">
+                      <!-- [['txt_btn_more_info' | translate]] -->
+                      Lihat Video
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-4" ng-if="showOptions" id="category-anchor">
+      <h3 class="mb-4 text-center" style="color: #fff;">Mingguan</h3>
+      <div class="row mb-4">
+        <div class="container">
+          <div class="row">
+            <div class="col-6 col-lg-3 mb-4" ng-repeat="category in vote.categories">
+              <div class="card" style="cursor: pointer;" ng-click="categorySelected($index)"
+                onclick="scrollToElement(); scrollToElementMobile();"><img alt="[[category.title]]" class="w-100"
+                  ng-src="[[category.imageUrl]]" />
+                <div class="card-body text-center">
+                  <h5 class="card-title txt-vote-contestant-title mb-0">
+                    [[category.title]]
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer ng-if="!hideFooter" class="page-footer font-small"
+    style="background-color: #[[vote.partner.primaryColor]] !important">
+    <div class="container" style="padding: 0px 15px">
+      <div class="py-4" style="
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+      ">
+        <div class="footer-links" style="padding-bottom: 16px"><a target="_blank" rel="noreferrer"
+            href="https://www.astro.com.my/privacy">Privacy</a><a target="_blank"
+            href="https://www.astro.com.my/terms">Terms</a><a target="_blank" rel="noreferrer"
+            href="https://www.astro.com.my/general-terms-and-conditions-for-astro-subscribers">General Terms &
+            Conditions</a></div>
+        <div class="footer-copyright">
+          © 2020 Measat Broadcast Network Systems Sdn Bhd (240064-A). All Rights
+          Reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+<div class="modal fade" id="modalMoreInfo" tabindex="-1" role="dialog" aria-labelledby="modalMoreInfoTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content rounded-0 border-0">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="modalMoreInfoTitle"></h5><button type="button" class="close" data-dismiss="modal"
+          aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+      <div class="modal-body p-0">
+        <div ng-if="selectedOption.videoUrl" class="w-100" style="width: 100%; padding-top: 56.25%; position: relative">
+          <iframe style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          " ng-src="[[trustSrc(selectedOption.videoUrl)]]" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div ng-if="!selectedOption.videoUrl && selectedOption.imageUrl" class="w-100"><img alt="Image" class="w-100"
+            ng-src="[[selectedOption.imageUrl]]" /></div>
+        <div class="m-4">
+          <h2>[[selectedOption.title]]</h2>
+          <h5>[[selectedOption.subTitle]]</h5>
+          <div ng-if="selectedOption.clickType=='person'">
+            <p><span ng-if="selectedOption.jsonData.fullName"><strong>[['txt_name' | translate]] :</strong>
+                [[selectedOption.jsonData.fullName]]<br /></span><span
+                ng-if="selectedOption.jsonData.dob"><strong>[['txt_dob' | translate]] :</strong>
+                [[selectedOption.jsonData.dob]]<br /></span><span
+                ng-if="selectedOption.jsonData.origin"><strong>[['txt_origin' | translate]] :</strong>
+                [[selectedOption.jsonData.origin]]<br /></span><span
+                ng-if="selectedOption.jsonData.career"><strong>[['txt_career' | translate]] :</strong>
+                [[selectedOption.jsonData.career]]<br /></span></p>
+          </div>
+          <div ng-bind-html="trustHtml(selectedOption.content)"></div>
+          <div class="mt-2"><a ng-if="selectedOption.jsonData.facebook" target="_blank" rel="noreferrer"
+              href="[[selectedOption.jsonData.facebook]]" class="btn mr-1"><i class="fa fa-facebook"
+                aria-hidden="true"></i></a><a ng-if="selectedOption.jsonData.instagram" target="_blank" rel="noreferrer"
+              href="[[selectedOption.jsonData.instagram]]" class="btn mr-1"><i class="fa fa-instagram"
+                aria-hidden="true"></i></a><a ng-if="selectedOption.jsonData.twitter" target="_blank" rel="noreferrer"
+              href="[[selectedOption.jsonData.twitter]]" class="btn mr-1"><i class="fa fa-twitter"
+                aria-hidden="true"></i></a><a ng-if="selectedOption.jsonData.youtube" target="_blank" rel="noreferrer"
+              href="[[selectedOption.jsonData.youtube]]" class="btn mr-1"><i class="fa fa-youtube"
+                aria-hidden="true"></i></a></div>
+        </div>
+      </div>
+      <div class="modal-footer border-0">
+        <div class="btn btn-primary btn-vote btn-block text-uppercase"
+          ng-class="(!vote.categories[selectedCategory].active) ? 'disabled' : '' "
+          ng-click="submitVote(selectedOption)">
+          [['txt_btn_vote' | translate]]
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="modalAlert" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content rounded-0 border-0">
+      <div class="modal-body">
+        <h3 ng-if="alert_title">[[alert_title]]</h3>
+        <p class="mb-0">[[alert_message]]</p>
+      </div>
+      <div class="modal-footer border-0">
+        <div class="btn btn-primary btn-vote btn-block text-uppercase" data-dismiss="modal" aria-label="Close">
+          [[alert_btn_text]]
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div ng-if="vote.categories.length === 1" ng-init="categorySelected(0)"></div>
+<style>
+  /* General container styling */
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Space between checkbox and text */
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: white;
+  }
+
+  /* Hide the default checkbox */
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  /* Label styling */
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin: 0px;
+  }
+
+  /* Custom checkbox box */
+  .checkbox-box {
+    width: 24px;
+    height: 24px;
+    border-radius: 8px;
+    /* Matches Figma radius */
+    background-color: white;
+    /* Default color when unchecked */
+    display: flex;
+    padding: 3px;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  /* Check icon */
+  .check-icon {
+    display: none;
+    /* Hidden by default */
+  }
+
+  /* Checked state styles */
+  input[type="checkbox"]:checked+.checkbox-label .checkbox-box {
+    background-color: #f56f1f;
+    /* Orange when checked */
+    border-color: #f56f1f;
+  }
+
+  input[type="checkbox"]:checked+.checkbox-label .checkbox-box .check-icon {
+    display: block !important;
+    /* Show the check icon when checked */
+  }
+
+  /* Text styling */
+  .checkbox-text {
+    color: white;
+    margin-left: 8px;
+  }
+
+  .minus-plus-btn {
+    padding: 0px;
+    vertical-align: center;
+    color: #F56F1F;
+    font-weight: bold;
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    opacity: 1 !important;
+  }
+
+  .input-group input {
+    height: 42px;
+    color: #010414;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+  }
+
+  .minus-plus-btn.disabled {
+    font-size: 20px;
+    background-color: #DEDEE0;
+    color: #ABABAD;
+  }
+
+  .math-button.disabled {
+    fill: ABABAD;
+  }
+
+  .minus-plus-btn.active {
+    font-size: 18px;
+    background-color: #FFFFFF;
+  }
+
+  .minus-plus-btn.active:hover {
+    color: #D95304;
+  }
+
+  .input-group-append,
+  .input-group-prepend {
+    z-index: 0 !important;
+  }
+
+  .input-group-append.active {
+    border-left: 1px solid #ccc
+  }
+
+  .input-group-prepend.active {
+    border-right: 1px solid #ccc
+  }
+
+  .button-group-vote {
+    margin-top: 16px;
+  }
+
+  .custom-container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .flex-row-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container-block {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .content-action-block {
+    flex: 1;
+    display: flex;
+    justify-content: strech;
+    align-items: center;
+    margin-top: 16px !important;
+  }
+
+  .submit-btn {
+    background-color: #F56F1F !important;
+    line-height: 22px !important;
+    border-radius: 8px !important;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 1 !important;
+  }
+
+  .submit-btn:hover {
+    background-color: #D95304 !important;
+    color: #ffffff;
+  }
+
+  .submit-btn.disabled {
+    background-color: #DEDEE0 !important;
+    cursor: default;
+    color: #ABABAD;
+  }
+
+  .single-vote-btn {
+    width: 100%;
+  }
+
+  .submit-btn:focus {
+    outline: 0;
+  }
+
+
+
+  #voteLayoutnew {
+    background-repeat: initial;
+    background-size: cover;
+    background-color: #e21e2d;
+  }
+
+  .header-title-container {
+    padding: 24px 16px !important;
+    background-color: transparent;
+  }
+
+  .header-title-container .title {
+    object-fit: contain;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38px;
+    text-align: left;
+    color: white;
+    margin-bottom: 16px !important;
+  }
+
+  .header-title-container .subtitle {
+    object-fit: contain;
+    font-size: 16px !important;
+    font-weight: normal;
+    line-height: 22px !important;
+    text-align: left;
+    color: white;
+    margin: 0px;
+  }
+
+  .card-body {
+    padding: 16px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #000;
+  }
+
+  .txt-vote-contestant-title {
+    object-fit: contain;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 22px;
+    letter-spacing: normal;
+    text-align: center;
+    color: white;
+    margin-bottom: 8px;
+  }
+
+  .txt-vote-contestant-sub-title {
+    object-fit: contain;
+    font-size: 16px;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 16px;
+    font-weight: 300 !important;
+    letter-spacing: normal;
+    text-align: center;
+    color: white;
+    margin-bottom: 0px;
+  }
+
+  .btn-more-info {
+    border-radius: 4px;
+    background-color: transparent !important;
+    border: 0 !important;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: center;
+    color: white;
+  }
+
+  .btn-vote {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    border-radius: 4px;
+    background-color: #e21e2d !important;
+    border: 0 !important;
+    margin-top: 16px;
+  }
+
+  .btn-video {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    border-radius: 4px;
+    background-color: #d6837f !important;
+    border: 0 !important;
+    margin-top: 16px;
+    color: black;
+    cursor: pointer;
+  }
+
+  .header-text {
+    font-size: 1.5rem;
+    color: white;
+    font-family: "Raleway", "Public Sans", sans-serif;
+    font-weight: 900;
+    align-items: center;
+    display: flex;
+  }
+
+  .home-btn {
+    align-items: center;
+    display: flex;
+    color: white;
+    padding: 0.375rem 0.75rem;
+  }
+
+  .home-btn:hover {
+    color: white;
+    text-decoration: none;
+  }
+
+  .home-btn a.dropdown-item:hover {
+    background-color: white !important;
+    cursor: pointer;
+  }
+
+  .btn-undian {
+    color: white;
+    font-weight: 100;
+  }
+
+  .btn-undian:hover {
+    color: white !important;
+    font-weight: 100;
+  }
+
+  .grid-item {
+    padding: 8px !important;
+    display: flex;
+  }
+
+  .header-title-mobile-container {
+    padding: 24px 16px !important;
+    background-color: #e21f2d;
+  }
+
+  .header-title-mobile-container .title {
+    object-fit: contain;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: center;
+    color: white;
+    margin-bottom: 16px !important;
+  }
+
+  .header-title-mobile-container .subtitle {
+    object-fit: contain;
+    font-size: 16px !important;
+    font-weight: normal;
+    line-height: 30px !important;
+    text-align: center;
+    color: white;
+    margin: 0px;
+  }
+
+
+  @media only screen and (max-width: 600px) {
+    .header-text {
+      font-size: 1.0rem;
+      color: white;
+      font-family: "Raleway", "Public Sans", sans-serif;
+      font-weight: 900;
+      align-items: center;
+      display: flex;
+    }
+
+    .options-grid {
+      justify-content: center;
+      flex: none !important;
+      max-width: 100% !important;
+      width: 75%;
+      margin-left: 3rem;
+    }
+
+    .input-group input {
+      line-height: 20px;
+    }
+  }
+
+  .interstitial-popup {
+    background: rgba(0, 0, 0, 0.8);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 0;
+    z-index: 100000;
+  }
+
+  .interstitial-button {
+    background: #f50;
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Arimo;
+    font-weight: bold;
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+    padding: 10px 28px;
+    text-transform: uppercase;
+  }
+
+  .leaderboard-ad {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 60px;
+  }
+</style>

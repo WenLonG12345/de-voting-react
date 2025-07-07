@@ -1,12 +1,14 @@
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarHeader,
   SidebarRail,
 } from '@/components/ui/sidebar'
 import { NavGroup } from '@/components/layout/nav-group'
 import { sidebarData } from './data/sidebar-data'
 import SidebarDisplay from './sidebar-display'
+import { ProfileDropdown } from '../profile-dropdown'
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
@@ -20,6 +22,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         ))}
       </SidebarContent>
       <SidebarRail />
+      <SidebarFooter>
+        <ProfileDropdown />
+      </SidebarFooter>
     </Sidebar>
   )
 }

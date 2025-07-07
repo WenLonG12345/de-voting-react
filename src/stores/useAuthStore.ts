@@ -3,7 +3,7 @@ import { create } from 'zustand'
 
 const ACCESS_TOKEN = 'thisisjustarandomstring'
 
-interface AuthUser {
+interface IAuthUser {
   accountNo: string
   email: string
   role: string[]
@@ -12,8 +12,8 @@ interface AuthUser {
 
 interface AuthState {
   auth: {
-    user: AuthUser | null
-    setUser: (user: AuthUser | null) => void
+    user: IAuthUser | null
+    setUser: (user: IAuthUser | null) => void
     accessToken: string
     setAccessToken: (accessToken: string) => void
     resetAccessToken: () => void

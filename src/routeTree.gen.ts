@@ -17,26 +17,22 @@ import { Route as errors500RouteImport } from './routes/(errors)/500'
 import { Route as errors404RouteImport } from './routes/(errors)/404'
 import { Route as errors403RouteImport } from './routes/(errors)/403'
 import { Route as errors401RouteImport } from './routes/(errors)/401'
-import { Route as AdminSettingsRouteRouteImport } from './routes/admin/settings/route'
-import { Route as AdminUsersIndexRouteImport } from './routes/admin/users/index'
-import { Route as AdminTasksIndexRouteImport } from './routes/admin/tasks/index'
-import { Route as AdminSettingsIndexRouteImport } from './routes/admin/settings/index'
-import { Route as AdminReportsIndexRouteImport } from './routes/admin/reports/index'
-import { Route as AdminHelpCenterIndexRouteImport } from './routes/admin/help-center/index'
-import { Route as AdminChatsIndexRouteImport } from './routes/admin/chats/index'
-import { Route as AdminCampaignsIndexRouteImport } from './routes/admin/campaigns/index'
-import { Route as AdminBrandingIndexRouteImport } from './routes/admin/branding/index'
-import { Route as AdminAppsIndexRouteImport } from './routes/admin/apps/index'
-import { Route as AdminSettingsNotificationsRouteImport } from './routes/admin/settings/notifications'
-import { Route as AdminSettingsDisplayRouteImport } from './routes/admin/settings/display'
-import { Route as AdminSettingsAppearanceRouteImport } from './routes/admin/settings/appearance'
-import { Route as AdminSettingsAccountRouteImport } from './routes/admin/settings/account'
-import { Route as AdminCampaignsSlugRouteImport } from './routes/admin/campaigns/$slug'
 import { Route as AdminauthSignUpRouteImport } from './routes/admin/(auth)/sign-up'
 import { Route as AdminauthSignIn2RouteImport } from './routes/admin/(auth)/sign-in-2'
 import { Route as AdminauthSignInRouteImport } from './routes/admin/(auth)/sign-in'
 import { Route as AdminauthOtpRouteImport } from './routes/admin/(auth)/otp'
 import { Route as AdminauthForgotPasswordRouteImport } from './routes/admin/(auth)/forgot-password'
+import { Route as AdmindashboardSettingsRouteRouteImport } from './routes/admin/(dashboard)/settings/route'
+import { Route as AdmindashboardUsersIndexRouteImport } from './routes/admin/(dashboard)/users/index'
+import { Route as AdmindashboardSettingsIndexRouteImport } from './routes/admin/(dashboard)/settings/index'
+import { Route as AdmindashboardReportsIndexRouteImport } from './routes/admin/(dashboard)/reports/index'
+import { Route as AdmindashboardCampaignsIndexRouteImport } from './routes/admin/(dashboard)/campaigns/index'
+import { Route as AdmindashboardBrandingIndexRouteImport } from './routes/admin/(dashboard)/branding/index'
+import { Route as AdmindashboardSettingsNotificationsRouteImport } from './routes/admin/(dashboard)/settings/notifications'
+import { Route as AdmindashboardSettingsDisplayRouteImport } from './routes/admin/(dashboard)/settings/display'
+import { Route as AdmindashboardSettingsAppearanceRouteImport } from './routes/admin/(dashboard)/settings/appearance'
+import { Route as AdmindashboardSettingsAccountRouteImport } from './routes/admin/(dashboard)/settings/account'
+import { Route as AdmindashboardCampaignsSlugRouteImport } from './routes/admin/(dashboard)/campaigns/$slug'
 
 const AdminRouteRoute = AdminRouteRouteImport.update({
   id: '/admin',
@@ -78,82 +74,6 @@ const errors401Route = errors401RouteImport.update({
   path: '/401',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminSettingsRouteRoute = AdminSettingsRouteRouteImport.update({
-  id: '/settings',
-  path: '/settings',
-  getParentRoute: () => AdminRouteRoute,
-} as any)
-const AdminUsersIndexRoute = AdminUsersIndexRouteImport.update({
-  id: '/users/',
-  path: '/users/',
-  getParentRoute: () => AdminRouteRoute,
-} as any)
-const AdminTasksIndexRoute = AdminTasksIndexRouteImport.update({
-  id: '/tasks/',
-  path: '/tasks/',
-  getParentRoute: () => AdminRouteRoute,
-} as any)
-const AdminSettingsIndexRoute = AdminSettingsIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => AdminSettingsRouteRoute,
-} as any)
-const AdminReportsIndexRoute = AdminReportsIndexRouteImport.update({
-  id: '/reports/',
-  path: '/reports/',
-  getParentRoute: () => AdminRouteRoute,
-} as any)
-const AdminHelpCenterIndexRoute = AdminHelpCenterIndexRouteImport.update({
-  id: '/help-center/',
-  path: '/help-center/',
-  getParentRoute: () => AdminRouteRoute,
-} as any)
-const AdminChatsIndexRoute = AdminChatsIndexRouteImport.update({
-  id: '/chats/',
-  path: '/chats/',
-  getParentRoute: () => AdminRouteRoute,
-} as any)
-const AdminCampaignsIndexRoute = AdminCampaignsIndexRouteImport.update({
-  id: '/campaigns/',
-  path: '/campaigns/',
-  getParentRoute: () => AdminRouteRoute,
-} as any)
-const AdminBrandingIndexRoute = AdminBrandingIndexRouteImport.update({
-  id: '/branding/',
-  path: '/branding/',
-  getParentRoute: () => AdminRouteRoute,
-} as any)
-const AdminAppsIndexRoute = AdminAppsIndexRouteImport.update({
-  id: '/apps/',
-  path: '/apps/',
-  getParentRoute: () => AdminRouteRoute,
-} as any)
-const AdminSettingsNotificationsRoute =
-  AdminSettingsNotificationsRouteImport.update({
-    id: '/notifications',
-    path: '/notifications',
-    getParentRoute: () => AdminSettingsRouteRoute,
-  } as any)
-const AdminSettingsDisplayRoute = AdminSettingsDisplayRouteImport.update({
-  id: '/display',
-  path: '/display',
-  getParentRoute: () => AdminSettingsRouteRoute,
-} as any)
-const AdminSettingsAppearanceRoute = AdminSettingsAppearanceRouteImport.update({
-  id: '/appearance',
-  path: '/appearance',
-  getParentRoute: () => AdminSettingsRouteRoute,
-} as any)
-const AdminSettingsAccountRoute = AdminSettingsAccountRouteImport.update({
-  id: '/account',
-  path: '/account',
-  getParentRoute: () => AdminSettingsRouteRoute,
-} as any)
-const AdminCampaignsSlugRoute = AdminCampaignsSlugRouteImport.update({
-  id: '/campaigns/$slug',
-  path: '/campaigns/$slug',
-  getParentRoute: () => AdminRouteRoute,
-} as any)
 const AdminauthSignUpRoute = AdminauthSignUpRouteImport.update({
   id: '/(auth)/sign-up',
   path: '/sign-up',
@@ -179,36 +99,98 @@ const AdminauthForgotPasswordRoute = AdminauthForgotPasswordRouteImport.update({
   path: '/forgot-password',
   getParentRoute: () => AdminRouteRoute,
 } as any)
+const AdmindashboardSettingsRouteRoute =
+  AdmindashboardSettingsRouteRouteImport.update({
+    id: '/(dashboard)/settings',
+    path: '/settings',
+    getParentRoute: () => AdminRouteRoute,
+  } as any)
+const AdmindashboardUsersIndexRoute =
+  AdmindashboardUsersIndexRouteImport.update({
+    id: '/(dashboard)/users/',
+    path: '/users/',
+    getParentRoute: () => AdminRouteRoute,
+  } as any)
+const AdmindashboardSettingsIndexRoute =
+  AdmindashboardSettingsIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => AdmindashboardSettingsRouteRoute,
+  } as any)
+const AdmindashboardReportsIndexRoute =
+  AdmindashboardReportsIndexRouteImport.update({
+    id: '/(dashboard)/reports/',
+    path: '/reports/',
+    getParentRoute: () => AdminRouteRoute,
+  } as any)
+const AdmindashboardCampaignsIndexRoute =
+  AdmindashboardCampaignsIndexRouteImport.update({
+    id: '/(dashboard)/campaigns/',
+    path: '/campaigns/',
+    getParentRoute: () => AdminRouteRoute,
+  } as any)
+const AdmindashboardBrandingIndexRoute =
+  AdmindashboardBrandingIndexRouteImport.update({
+    id: '/(dashboard)/branding/',
+    path: '/branding/',
+    getParentRoute: () => AdminRouteRoute,
+  } as any)
+const AdmindashboardSettingsNotificationsRoute =
+  AdmindashboardSettingsNotificationsRouteImport.update({
+    id: '/notifications',
+    path: '/notifications',
+    getParentRoute: () => AdmindashboardSettingsRouteRoute,
+  } as any)
+const AdmindashboardSettingsDisplayRoute =
+  AdmindashboardSettingsDisplayRouteImport.update({
+    id: '/display',
+    path: '/display',
+    getParentRoute: () => AdmindashboardSettingsRouteRoute,
+  } as any)
+const AdmindashboardSettingsAppearanceRoute =
+  AdmindashboardSettingsAppearanceRouteImport.update({
+    id: '/appearance',
+    path: '/appearance',
+    getParentRoute: () => AdmindashboardSettingsRouteRoute,
+  } as any)
+const AdmindashboardSettingsAccountRoute =
+  AdmindashboardSettingsAccountRouteImport.update({
+    id: '/account',
+    path: '/account',
+    getParentRoute: () => AdmindashboardSettingsRouteRoute,
+  } as any)
+const AdmindashboardCampaignsSlugRoute =
+  AdmindashboardCampaignsSlugRouteImport.update({
+    id: '/(dashboard)/campaigns/$slug',
+    path: '/campaigns/$slug',
+    getParentRoute: () => AdminRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteRouteWithChildren
-  '/admin/settings': typeof AdminSettingsRouteRouteWithChildren
   '/401': typeof errors401Route
   '/403': typeof errors403Route
   '/404': typeof errors404Route
   '/500': typeof errors500Route
   '/503': typeof errors503Route
   '/admin/': typeof AdminIndexRoute
+  '/admin/settings': typeof AdmindashboardSettingsRouteRouteWithChildren
   '/admin/forgot-password': typeof AdminauthForgotPasswordRoute
   '/admin/otp': typeof AdminauthOtpRoute
   '/admin/sign-in': typeof AdminauthSignInRoute
   '/admin/sign-in-2': typeof AdminauthSignIn2Route
   '/admin/sign-up': typeof AdminauthSignUpRoute
-  '/admin/campaigns/$slug': typeof AdminCampaignsSlugRoute
-  '/admin/settings/account': typeof AdminSettingsAccountRoute
-  '/admin/settings/appearance': typeof AdminSettingsAppearanceRoute
-  '/admin/settings/display': typeof AdminSettingsDisplayRoute
-  '/admin/settings/notifications': typeof AdminSettingsNotificationsRoute
-  '/admin/apps': typeof AdminAppsIndexRoute
-  '/admin/branding': typeof AdminBrandingIndexRoute
-  '/admin/campaigns': typeof AdminCampaignsIndexRoute
-  '/admin/chats': typeof AdminChatsIndexRoute
-  '/admin/help-center': typeof AdminHelpCenterIndexRoute
-  '/admin/reports': typeof AdminReportsIndexRoute
-  '/admin/settings/': typeof AdminSettingsIndexRoute
-  '/admin/tasks': typeof AdminTasksIndexRoute
-  '/admin/users': typeof AdminUsersIndexRoute
+  '/admin/campaigns/$slug': typeof AdmindashboardCampaignsSlugRoute
+  '/admin/settings/account': typeof AdmindashboardSettingsAccountRoute
+  '/admin/settings/appearance': typeof AdmindashboardSettingsAppearanceRoute
+  '/admin/settings/display': typeof AdmindashboardSettingsDisplayRoute
+  '/admin/settings/notifications': typeof AdmindashboardSettingsNotificationsRoute
+  '/admin/branding': typeof AdmindashboardBrandingIndexRoute
+  '/admin/campaigns': typeof AdmindashboardCampaignsIndexRoute
+  '/admin/reports': typeof AdmindashboardReportsIndexRoute
+  '/admin/settings/': typeof AdmindashboardSettingsIndexRoute
+  '/admin/users': typeof AdmindashboardUsersIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -223,64 +205,56 @@ export interface FileRoutesByTo {
   '/admin/sign-in': typeof AdminauthSignInRoute
   '/admin/sign-in-2': typeof AdminauthSignIn2Route
   '/admin/sign-up': typeof AdminauthSignUpRoute
-  '/admin/campaigns/$slug': typeof AdminCampaignsSlugRoute
-  '/admin/settings/account': typeof AdminSettingsAccountRoute
-  '/admin/settings/appearance': typeof AdminSettingsAppearanceRoute
-  '/admin/settings/display': typeof AdminSettingsDisplayRoute
-  '/admin/settings/notifications': typeof AdminSettingsNotificationsRoute
-  '/admin/apps': typeof AdminAppsIndexRoute
-  '/admin/branding': typeof AdminBrandingIndexRoute
-  '/admin/campaigns': typeof AdminCampaignsIndexRoute
-  '/admin/chats': typeof AdminChatsIndexRoute
-  '/admin/help-center': typeof AdminHelpCenterIndexRoute
-  '/admin/reports': typeof AdminReportsIndexRoute
-  '/admin/settings': typeof AdminSettingsIndexRoute
-  '/admin/tasks': typeof AdminTasksIndexRoute
-  '/admin/users': typeof AdminUsersIndexRoute
+  '/admin/campaigns/$slug': typeof AdmindashboardCampaignsSlugRoute
+  '/admin/settings/account': typeof AdmindashboardSettingsAccountRoute
+  '/admin/settings/appearance': typeof AdmindashboardSettingsAppearanceRoute
+  '/admin/settings/display': typeof AdmindashboardSettingsDisplayRoute
+  '/admin/settings/notifications': typeof AdmindashboardSettingsNotificationsRoute
+  '/admin/branding': typeof AdmindashboardBrandingIndexRoute
+  '/admin/campaigns': typeof AdmindashboardCampaignsIndexRoute
+  '/admin/reports': typeof AdmindashboardReportsIndexRoute
+  '/admin/settings': typeof AdmindashboardSettingsIndexRoute
+  '/admin/users': typeof AdmindashboardUsersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteRouteWithChildren
-  '/admin/settings': typeof AdminSettingsRouteRouteWithChildren
   '/(errors)/401': typeof errors401Route
   '/(errors)/403': typeof errors403Route
   '/(errors)/404': typeof errors404Route
   '/(errors)/500': typeof errors500Route
   '/(errors)/503': typeof errors503Route
   '/admin/': typeof AdminIndexRoute
+  '/admin/(dashboard)/settings': typeof AdmindashboardSettingsRouteRouteWithChildren
   '/admin/(auth)/forgot-password': typeof AdminauthForgotPasswordRoute
   '/admin/(auth)/otp': typeof AdminauthOtpRoute
   '/admin/(auth)/sign-in': typeof AdminauthSignInRoute
   '/admin/(auth)/sign-in-2': typeof AdminauthSignIn2Route
   '/admin/(auth)/sign-up': typeof AdminauthSignUpRoute
-  '/admin/campaigns/$slug': typeof AdminCampaignsSlugRoute
-  '/admin/settings/account': typeof AdminSettingsAccountRoute
-  '/admin/settings/appearance': typeof AdminSettingsAppearanceRoute
-  '/admin/settings/display': typeof AdminSettingsDisplayRoute
-  '/admin/settings/notifications': typeof AdminSettingsNotificationsRoute
-  '/admin/apps/': typeof AdminAppsIndexRoute
-  '/admin/branding/': typeof AdminBrandingIndexRoute
-  '/admin/campaigns/': typeof AdminCampaignsIndexRoute
-  '/admin/chats/': typeof AdminChatsIndexRoute
-  '/admin/help-center/': typeof AdminHelpCenterIndexRoute
-  '/admin/reports/': typeof AdminReportsIndexRoute
-  '/admin/settings/': typeof AdminSettingsIndexRoute
-  '/admin/tasks/': typeof AdminTasksIndexRoute
-  '/admin/users/': typeof AdminUsersIndexRoute
+  '/admin/(dashboard)/campaigns/$slug': typeof AdmindashboardCampaignsSlugRoute
+  '/admin/(dashboard)/settings/account': typeof AdmindashboardSettingsAccountRoute
+  '/admin/(dashboard)/settings/appearance': typeof AdmindashboardSettingsAppearanceRoute
+  '/admin/(dashboard)/settings/display': typeof AdmindashboardSettingsDisplayRoute
+  '/admin/(dashboard)/settings/notifications': typeof AdmindashboardSettingsNotificationsRoute
+  '/admin/(dashboard)/branding/': typeof AdmindashboardBrandingIndexRoute
+  '/admin/(dashboard)/campaigns/': typeof AdmindashboardCampaignsIndexRoute
+  '/admin/(dashboard)/reports/': typeof AdmindashboardReportsIndexRoute
+  '/admin/(dashboard)/settings/': typeof AdmindashboardSettingsIndexRoute
+  '/admin/(dashboard)/users/': typeof AdmindashboardUsersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/admin'
-    | '/admin/settings'
     | '/401'
     | '/403'
     | '/404'
     | '/500'
     | '/503'
     | '/admin/'
+    | '/admin/settings'
     | '/admin/forgot-password'
     | '/admin/otp'
     | '/admin/sign-in'
@@ -291,14 +265,10 @@ export interface FileRouteTypes {
     | '/admin/settings/appearance'
     | '/admin/settings/display'
     | '/admin/settings/notifications'
-    | '/admin/apps'
     | '/admin/branding'
     | '/admin/campaigns'
-    | '/admin/chats'
-    | '/admin/help-center'
     | '/admin/reports'
     | '/admin/settings/'
-    | '/admin/tasks'
     | '/admin/users'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -319,45 +289,37 @@ export interface FileRouteTypes {
     | '/admin/settings/appearance'
     | '/admin/settings/display'
     | '/admin/settings/notifications'
-    | '/admin/apps'
     | '/admin/branding'
     | '/admin/campaigns'
-    | '/admin/chats'
-    | '/admin/help-center'
     | '/admin/reports'
     | '/admin/settings'
-    | '/admin/tasks'
     | '/admin/users'
   id:
     | '__root__'
     | '/'
     | '/admin'
-    | '/admin/settings'
     | '/(errors)/401'
     | '/(errors)/403'
     | '/(errors)/404'
     | '/(errors)/500'
     | '/(errors)/503'
     | '/admin/'
+    | '/admin/(dashboard)/settings'
     | '/admin/(auth)/forgot-password'
     | '/admin/(auth)/otp'
     | '/admin/(auth)/sign-in'
     | '/admin/(auth)/sign-in-2'
     | '/admin/(auth)/sign-up'
-    | '/admin/campaigns/$slug'
-    | '/admin/settings/account'
-    | '/admin/settings/appearance'
-    | '/admin/settings/display'
-    | '/admin/settings/notifications'
-    | '/admin/apps/'
-    | '/admin/branding/'
-    | '/admin/campaigns/'
-    | '/admin/chats/'
-    | '/admin/help-center/'
-    | '/admin/reports/'
-    | '/admin/settings/'
-    | '/admin/tasks/'
-    | '/admin/users/'
+    | '/admin/(dashboard)/campaigns/$slug'
+    | '/admin/(dashboard)/settings/account'
+    | '/admin/(dashboard)/settings/appearance'
+    | '/admin/(dashboard)/settings/display'
+    | '/admin/(dashboard)/settings/notifications'
+    | '/admin/(dashboard)/branding/'
+    | '/admin/(dashboard)/campaigns/'
+    | '/admin/(dashboard)/reports/'
+    | '/admin/(dashboard)/settings/'
+    | '/admin/(dashboard)/users/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -428,111 +390,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof errors401RouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/settings': {
-      id: '/admin/settings'
-      path: '/settings'
-      fullPath: '/admin/settings'
-      preLoaderRoute: typeof AdminSettingsRouteRouteImport
-      parentRoute: typeof AdminRouteRoute
-    }
-    '/admin/users/': {
-      id: '/admin/users/'
-      path: '/users'
-      fullPath: '/admin/users'
-      preLoaderRoute: typeof AdminUsersIndexRouteImport
-      parentRoute: typeof AdminRouteRoute
-    }
-    '/admin/tasks/': {
-      id: '/admin/tasks/'
-      path: '/tasks'
-      fullPath: '/admin/tasks'
-      preLoaderRoute: typeof AdminTasksIndexRouteImport
-      parentRoute: typeof AdminRouteRoute
-    }
-    '/admin/settings/': {
-      id: '/admin/settings/'
-      path: '/'
-      fullPath: '/admin/settings/'
-      preLoaderRoute: typeof AdminSettingsIndexRouteImport
-      parentRoute: typeof AdminSettingsRouteRoute
-    }
-    '/admin/reports/': {
-      id: '/admin/reports/'
-      path: '/reports'
-      fullPath: '/admin/reports'
-      preLoaderRoute: typeof AdminReportsIndexRouteImport
-      parentRoute: typeof AdminRouteRoute
-    }
-    '/admin/help-center/': {
-      id: '/admin/help-center/'
-      path: '/help-center'
-      fullPath: '/admin/help-center'
-      preLoaderRoute: typeof AdminHelpCenterIndexRouteImport
-      parentRoute: typeof AdminRouteRoute
-    }
-    '/admin/chats/': {
-      id: '/admin/chats/'
-      path: '/chats'
-      fullPath: '/admin/chats'
-      preLoaderRoute: typeof AdminChatsIndexRouteImport
-      parentRoute: typeof AdminRouteRoute
-    }
-    '/admin/campaigns/': {
-      id: '/admin/campaigns/'
-      path: '/campaigns'
-      fullPath: '/admin/campaigns'
-      preLoaderRoute: typeof AdminCampaignsIndexRouteImport
-      parentRoute: typeof AdminRouteRoute
-    }
-    '/admin/branding/': {
-      id: '/admin/branding/'
-      path: '/branding'
-      fullPath: '/admin/branding'
-      preLoaderRoute: typeof AdminBrandingIndexRouteImport
-      parentRoute: typeof AdminRouteRoute
-    }
-    '/admin/apps/': {
-      id: '/admin/apps/'
-      path: '/apps'
-      fullPath: '/admin/apps'
-      preLoaderRoute: typeof AdminAppsIndexRouteImport
-      parentRoute: typeof AdminRouteRoute
-    }
-    '/admin/settings/notifications': {
-      id: '/admin/settings/notifications'
-      path: '/notifications'
-      fullPath: '/admin/settings/notifications'
-      preLoaderRoute: typeof AdminSettingsNotificationsRouteImport
-      parentRoute: typeof AdminSettingsRouteRoute
-    }
-    '/admin/settings/display': {
-      id: '/admin/settings/display'
-      path: '/display'
-      fullPath: '/admin/settings/display'
-      preLoaderRoute: typeof AdminSettingsDisplayRouteImport
-      parentRoute: typeof AdminSettingsRouteRoute
-    }
-    '/admin/settings/appearance': {
-      id: '/admin/settings/appearance'
-      path: '/appearance'
-      fullPath: '/admin/settings/appearance'
-      preLoaderRoute: typeof AdminSettingsAppearanceRouteImport
-      parentRoute: typeof AdminSettingsRouteRoute
-    }
-    '/admin/settings/account': {
-      id: '/admin/settings/account'
-      path: '/account'
-      fullPath: '/admin/settings/account'
-      preLoaderRoute: typeof AdminSettingsAccountRouteImport
-      parentRoute: typeof AdminSettingsRouteRoute
-    }
-    '/admin/campaigns/$slug': {
-      id: '/admin/campaigns/$slug'
-      path: '/campaigns/$slug'
-      fullPath: '/admin/campaigns/$slug'
-      preLoaderRoute: typeof AdminCampaignsSlugRouteImport
-      parentRoute: typeof AdminRouteRoute
-    }
     '/admin/(auth)/sign-up': {
       id: '/admin/(auth)/sign-up'
       path: '/sign-up'
@@ -568,64 +425,139 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminauthForgotPasswordRouteImport
       parentRoute: typeof AdminRouteRoute
     }
+    '/admin/(dashboard)/settings': {
+      id: '/admin/(dashboard)/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdmindashboardSettingsRouteRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/(dashboard)/users/': {
+      id: '/admin/(dashboard)/users/'
+      path: '/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdmindashboardUsersIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/(dashboard)/settings/': {
+      id: '/admin/(dashboard)/settings/'
+      path: '/'
+      fullPath: '/admin/settings/'
+      preLoaderRoute: typeof AdmindashboardSettingsIndexRouteImport
+      parentRoute: typeof AdmindashboardSettingsRouteRoute
+    }
+    '/admin/(dashboard)/reports/': {
+      id: '/admin/(dashboard)/reports/'
+      path: '/reports'
+      fullPath: '/admin/reports'
+      preLoaderRoute: typeof AdmindashboardReportsIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/(dashboard)/campaigns/': {
+      id: '/admin/(dashboard)/campaigns/'
+      path: '/campaigns'
+      fullPath: '/admin/campaigns'
+      preLoaderRoute: typeof AdmindashboardCampaignsIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/(dashboard)/branding/': {
+      id: '/admin/(dashboard)/branding/'
+      path: '/branding'
+      fullPath: '/admin/branding'
+      preLoaderRoute: typeof AdmindashboardBrandingIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/(dashboard)/settings/notifications': {
+      id: '/admin/(dashboard)/settings/notifications'
+      path: '/notifications'
+      fullPath: '/admin/settings/notifications'
+      preLoaderRoute: typeof AdmindashboardSettingsNotificationsRouteImport
+      parentRoute: typeof AdmindashboardSettingsRouteRoute
+    }
+    '/admin/(dashboard)/settings/display': {
+      id: '/admin/(dashboard)/settings/display'
+      path: '/display'
+      fullPath: '/admin/settings/display'
+      preLoaderRoute: typeof AdmindashboardSettingsDisplayRouteImport
+      parentRoute: typeof AdmindashboardSettingsRouteRoute
+    }
+    '/admin/(dashboard)/settings/appearance': {
+      id: '/admin/(dashboard)/settings/appearance'
+      path: '/appearance'
+      fullPath: '/admin/settings/appearance'
+      preLoaderRoute: typeof AdmindashboardSettingsAppearanceRouteImport
+      parentRoute: typeof AdmindashboardSettingsRouteRoute
+    }
+    '/admin/(dashboard)/settings/account': {
+      id: '/admin/(dashboard)/settings/account'
+      path: '/account'
+      fullPath: '/admin/settings/account'
+      preLoaderRoute: typeof AdmindashboardSettingsAccountRouteImport
+      parentRoute: typeof AdmindashboardSettingsRouteRoute
+    }
+    '/admin/(dashboard)/campaigns/$slug': {
+      id: '/admin/(dashboard)/campaigns/$slug'
+      path: '/campaigns/$slug'
+      fullPath: '/admin/campaigns/$slug'
+      preLoaderRoute: typeof AdmindashboardCampaignsSlugRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
   }
 }
 
-interface AdminSettingsRouteRouteChildren {
-  AdminSettingsAccountRoute: typeof AdminSettingsAccountRoute
-  AdminSettingsAppearanceRoute: typeof AdminSettingsAppearanceRoute
-  AdminSettingsDisplayRoute: typeof AdminSettingsDisplayRoute
-  AdminSettingsNotificationsRoute: typeof AdminSettingsNotificationsRoute
-  AdminSettingsIndexRoute: typeof AdminSettingsIndexRoute
+interface AdmindashboardSettingsRouteRouteChildren {
+  AdmindashboardSettingsAccountRoute: typeof AdmindashboardSettingsAccountRoute
+  AdmindashboardSettingsAppearanceRoute: typeof AdmindashboardSettingsAppearanceRoute
+  AdmindashboardSettingsDisplayRoute: typeof AdmindashboardSettingsDisplayRoute
+  AdmindashboardSettingsNotificationsRoute: typeof AdmindashboardSettingsNotificationsRoute
+  AdmindashboardSettingsIndexRoute: typeof AdmindashboardSettingsIndexRoute
 }
 
-const AdminSettingsRouteRouteChildren: AdminSettingsRouteRouteChildren = {
-  AdminSettingsAccountRoute: AdminSettingsAccountRoute,
-  AdminSettingsAppearanceRoute: AdminSettingsAppearanceRoute,
-  AdminSettingsDisplayRoute: AdminSettingsDisplayRoute,
-  AdminSettingsNotificationsRoute: AdminSettingsNotificationsRoute,
-  AdminSettingsIndexRoute: AdminSettingsIndexRoute,
-}
+const AdmindashboardSettingsRouteRouteChildren: AdmindashboardSettingsRouteRouteChildren =
+  {
+    AdmindashboardSettingsAccountRoute: AdmindashboardSettingsAccountRoute,
+    AdmindashboardSettingsAppearanceRoute:
+      AdmindashboardSettingsAppearanceRoute,
+    AdmindashboardSettingsDisplayRoute: AdmindashboardSettingsDisplayRoute,
+    AdmindashboardSettingsNotificationsRoute:
+      AdmindashboardSettingsNotificationsRoute,
+    AdmindashboardSettingsIndexRoute: AdmindashboardSettingsIndexRoute,
+  }
 
-const AdminSettingsRouteRouteWithChildren =
-  AdminSettingsRouteRoute._addFileChildren(AdminSettingsRouteRouteChildren)
+const AdmindashboardSettingsRouteRouteWithChildren =
+  AdmindashboardSettingsRouteRoute._addFileChildren(
+    AdmindashboardSettingsRouteRouteChildren,
+  )
 
 interface AdminRouteRouteChildren {
-  AdminSettingsRouteRoute: typeof AdminSettingsRouteRouteWithChildren
   AdminIndexRoute: typeof AdminIndexRoute
+  AdmindashboardSettingsRouteRoute: typeof AdmindashboardSettingsRouteRouteWithChildren
   AdminauthForgotPasswordRoute: typeof AdminauthForgotPasswordRoute
   AdminauthOtpRoute: typeof AdminauthOtpRoute
   AdminauthSignInRoute: typeof AdminauthSignInRoute
   AdminauthSignIn2Route: typeof AdminauthSignIn2Route
   AdminauthSignUpRoute: typeof AdminauthSignUpRoute
-  AdminCampaignsSlugRoute: typeof AdminCampaignsSlugRoute
-  AdminAppsIndexRoute: typeof AdminAppsIndexRoute
-  AdminBrandingIndexRoute: typeof AdminBrandingIndexRoute
-  AdminCampaignsIndexRoute: typeof AdminCampaignsIndexRoute
-  AdminChatsIndexRoute: typeof AdminChatsIndexRoute
-  AdminHelpCenterIndexRoute: typeof AdminHelpCenterIndexRoute
-  AdminReportsIndexRoute: typeof AdminReportsIndexRoute
-  AdminTasksIndexRoute: typeof AdminTasksIndexRoute
-  AdminUsersIndexRoute: typeof AdminUsersIndexRoute
+  AdmindashboardCampaignsSlugRoute: typeof AdmindashboardCampaignsSlugRoute
+  AdmindashboardBrandingIndexRoute: typeof AdmindashboardBrandingIndexRoute
+  AdmindashboardCampaignsIndexRoute: typeof AdmindashboardCampaignsIndexRoute
+  AdmindashboardReportsIndexRoute: typeof AdmindashboardReportsIndexRoute
+  AdmindashboardUsersIndexRoute: typeof AdmindashboardUsersIndexRoute
 }
 
 const AdminRouteRouteChildren: AdminRouteRouteChildren = {
-  AdminSettingsRouteRoute: AdminSettingsRouteRouteWithChildren,
   AdminIndexRoute: AdminIndexRoute,
+  AdmindashboardSettingsRouteRoute:
+    AdmindashboardSettingsRouteRouteWithChildren,
   AdminauthForgotPasswordRoute: AdminauthForgotPasswordRoute,
   AdminauthOtpRoute: AdminauthOtpRoute,
   AdminauthSignInRoute: AdminauthSignInRoute,
   AdminauthSignIn2Route: AdminauthSignIn2Route,
   AdminauthSignUpRoute: AdminauthSignUpRoute,
-  AdminCampaignsSlugRoute: AdminCampaignsSlugRoute,
-  AdminAppsIndexRoute: AdminAppsIndexRoute,
-  AdminBrandingIndexRoute: AdminBrandingIndexRoute,
-  AdminCampaignsIndexRoute: AdminCampaignsIndexRoute,
-  AdminChatsIndexRoute: AdminChatsIndexRoute,
-  AdminHelpCenterIndexRoute: AdminHelpCenterIndexRoute,
-  AdminReportsIndexRoute: AdminReportsIndexRoute,
-  AdminTasksIndexRoute: AdminTasksIndexRoute,
-  AdminUsersIndexRoute: AdminUsersIndexRoute,
+  AdmindashboardCampaignsSlugRoute: AdmindashboardCampaignsSlugRoute,
+  AdmindashboardBrandingIndexRoute: AdmindashboardBrandingIndexRoute,
+  AdmindashboardCampaignsIndexRoute: AdmindashboardCampaignsIndexRoute,
+  AdmindashboardReportsIndexRoute: AdmindashboardReportsIndexRoute,
+  AdmindashboardUsersIndexRoute: AdmindashboardUsersIndexRoute,
 }
 
 const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(

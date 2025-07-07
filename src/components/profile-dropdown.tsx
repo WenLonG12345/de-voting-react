@@ -11,17 +11,27 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { SidebarMenuButton } from './ui/sidebar'
 
 export function ProfileDropdown() {
   return (
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
-        <Button variant='ghost' className='relative h-8 w-8 rounded-full'>
-          <Avatar className='h-8 w-8'>
-            <AvatarImage src='/avatars/01.png' alt='@shadcn' />
-            <AvatarFallback>A</AvatarFallback>
-          </Avatar>
-        </Button>
+        <SidebarMenuButton
+          size='lg'
+          className='data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground'
+        >
+          <Button variant='ghost' className='relative h-8 w-8 rounded-full'>
+            <Avatar className='h-8 w-8'>
+              <AvatarImage src='/avatars/01.png' alt='@shadcn' />
+              <AvatarFallback>A</AvatarFallback>
+            </Avatar>
+          </Button>
+          <div className='grid flex-1 text-left text-sm leading-tight'>
+            <span className='truncate font-semibold'>Admin</span>
+            <span className='truncate text-xs'>admin@gmail.com</span>
+          </div>
+        </SidebarMenuButton>
       </DropdownMenuTrigger>
       <DropdownMenuContent className='w-56' align='end' forceMount>
         <DropdownMenuLabel className='font-normal'>
